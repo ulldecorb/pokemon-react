@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import PokemonList from './components/PockemonList';
+import Pagination from './components/Pagination';
 // import './App.css';
 
 function App() {
@@ -13,18 +14,37 @@ function App() {
 
   useEffect(() => {
     setLoading(true);
-    axios.get(currentUrl).then((res) => {
+    let cancel;
+    axios.get(currentUrl, {
+      cancelToken: new axios.CancelToken((c) => { cancel = c; })
+    }).then((res) => {
       setLoading(false);
       setNextUrl(res.data.next);
       setPreviousUrl(res.data.previous);
       setPokemon(res.data.results.map((p) => p.name));
     });
+
+    return () => cancel();
   }, [currentUrl]);
+
+  const goToNextPage = () => {
+    setCurrentUrl(nextUrl);
+  };
+
+  const goToPreviousPage = () => {
+    setCurrentUrl(previousUrl);
+  };
 
   if (loading) return 'Loading...';
 
   return (
-    <PokemonList pokemon={pokemon} />
+    <>
+      <PokemonList pokemon={pokemon} />
+      <Pagination
+        goToNextPage={goToNextPage}
+        goToPreviousPage={goToPreviousPage}
+      />
+    </>
   );
 }
 
