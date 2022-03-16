@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react';
 import {
   BrowserRouter as Router,
   Routes,
-  Route
+  Route,
+  Navigate
 } from 'react-router-dom';
 import axios from 'axios';
 import PokemonList from './components/PockemonList';
+import PokemonDetail from './components/PokemonDetail';
 // import Pagination from './components/Pagination';
 import Loading from './components/Loading';
 // import './App.css';
@@ -26,6 +28,7 @@ function App() {
       setLoading(false);
       setNextUrl(res.data.next);
       setPreviousUrl(res.data.previous);
+      console.log(`currentUrl: ${currentUrl}`);
       console.table(res.data);
       setPokemon(res.data.results);
     });
@@ -54,8 +57,11 @@ function App() {
               goToNextPage={nextUrl ? goToNextPage : null}
               goToPreviousPage={previousUrl ? goToPreviousPage : null}
             />
-)}
+            )}
         />
+        <Route path="/pokemon/:id" element={<PokemonDetail />} />
+        <Route path="/" element={<Navigate to="/pokemons" />} />
+
       </Routes>
     </Router>
   );
