@@ -1,6 +1,5 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
-// import {PropTypes} from 'prop-types';
+import { PropTypes } from 'prop-types';
 
 export default function PockemonList({ pokemon }) {
   return (
@@ -14,6 +13,6 @@ export default function PockemonList({ pokemon }) {
   );
 }
 
-// PockemonList.propTypes = {
-//   pokemon: PropTypes.shape([]).isRequired
-// }
+PockemonList.propTypes = {
+  pokemon: PropTypes.shape([]).isRequired
+};

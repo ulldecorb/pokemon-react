@@ -1,0 +1,38 @@
+.loading{
+    display: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: red;
+    display: flex;
+    flex-direction: column;;
+    justify-content: center;
+    align-items: center;
+}
+
+.loading__title{
+    color: yellow;
+    font-size: 3rem;
+}
+
+.loading__pokeball{
+    height: 20vmin;
+    width: 20vmin;
+    border-radius: 50%;
+    outline: 2vmin solid #000;
+    background-image: linear-gradient(180deg, red, red 45%, #000 45%, #000 55%,#fff 55% );
+    display: flex;
+    flex-direction: column;;
+    justify-content: center;
+    align-items: center;
+}
+
+.loading__pokeball-inner {
+    height: 4vmin;
+    width: 4vmin;
+    border-radius: 50%;
+    outline: 1vmin solid #000;
+    box-shadow: 0 0 0 0.5vmin rgb(184, 182, 182) inset,  0 0 0 1vmin white inset;
+    background-color: rgb(184, 182, 182)
+}

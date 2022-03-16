@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import PokemonList from './components/PockemonList';
 import Pagination from './components/Pagination';
+import Loading from './components/Loading';
 // import './App.css';
 
 function App() {
@@ -18,7 +19,7 @@ function App() {
     axios.get(currentUrl, {
       cancelToken: new axios.CancelToken((c) => { cancel = c; })
     }).then((res) => {
-      setLoading(false);
+      // setLoading(false);
       setNextUrl(res.data.next);
       setPreviousUrl(res.data.previous);
       setPokemon(res.data.results.map((p) => p.name));
@@ -35,7 +36,7 @@ function App() {
     setCurrentUrl(previousUrl);
   };
 
-  if (loading) return 'Loading...';
+  if (loading) return <Loading />;
 
   return (
     <>

@@ -1,5 +1,5 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
+import { PropTypes } from 'prop-types';
 
 export default function Pagination({ goToNextPage, goToPreviousPage }) {
   return (
@@ -10,7 +10,7 @@ export default function Pagination({ goToNextPage, goToPreviousPage }) {
   );
 }
 
-// PockemonList.propTypes = {
-//   goToNextPage: PropTypes.func.isRequired
-//   goToPreviousPage: PropTypes.func.isRequired
-// }
+Pagination.propTypes = {
+  goToNextPage: PropTypes.func.isRequired,
+  goToPreviousPage: PropTypes.func.isRequired
+};
