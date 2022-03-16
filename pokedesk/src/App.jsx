@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import PokemonList from './components/PockemonList';
@@ -19,7 +18,7 @@ function App() {
     axios.get(currentUrl, {
       cancelToken: new axios.CancelToken((c) => { cancel = c; })
     }).then((res) => {
-      // setLoading(false);
+      setLoading(false);
       setNextUrl(res.data.next);
       setPreviousUrl(res.data.previous);
       setPokemon(res.data.results.map((p) => p.name));

@@ -11,7 +11,7 @@
     align-items: center;
 }
 
-.loading__title{
+.loading__text{
     color: yellow;
     font-size: 3rem;
 }
@@ -26,6 +26,7 @@
     flex-direction: column;;
     justify-content: center;
     align-items: center;
+    animation: spin-pokeball 1s linear 0s infinite normal none;
 }
 
 .loading__pokeball-inner {
@@ -33,6 +34,11 @@
     width: 4vmin;
     border-radius: 50%;
     outline: 1vmin solid #000;
-    box-shadow: 0 0 0 0.5vmin rgb(184, 182, 182) inset,  0 0 0 1vmin white inset;
-    background-color: rgb(184, 182, 182)
+    box-shadow: 0 0 0 0.5vmin white inset,  0 0 0 1vmin rgb(184, 182, 182) inset;
+    background-color: white
+}
+
+@keyframes spin-pokeball {
+    0% {transform:rotate(0deg)}
+    100%{transform:rotate(360deg)}
 }
