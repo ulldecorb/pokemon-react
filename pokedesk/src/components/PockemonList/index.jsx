@@ -5,8 +5,11 @@ export default function PockemonList({ pokemon }) {
   return (
     <div>
       {pokemon.map((p) => (
-        <div key={p}>
-          {p}
+        <div key={p.name}>
+          {p.name}
+          <br />
+          {p.url}
+
         </div>
       ))}
     </div>

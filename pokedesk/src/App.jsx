@@ -21,7 +21,8 @@ function App() {
       setLoading(false);
       setNextUrl(res.data.next);
       setPreviousUrl(res.data.previous);
-      setPokemon(res.data.results.map((p) => p.name));
+      console.table(res.data);
+      setPokemon(res.data.results);
     });
 
     return () => cancel();
