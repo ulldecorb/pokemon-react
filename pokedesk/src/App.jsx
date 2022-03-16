@@ -1,7 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route
+} from 'react-router-dom';
 import axios from 'axios';
 import PokemonList from './components/PockemonList';
-import Pagination from './components/Pagination';
+// import Pagination from './components/Pagination';
 import Loading from './components/Loading';
 // import './App.css';
 
@@ -39,13 +44,20 @@ function App() {
   if (loading) return <Loading />;
 
   return (
-    <>
-      <PokemonList pokemon={pokemon} />
-      <Pagination
-        goToNextPage={nextUrl ? goToNextPage : null}
-        goToPreviousPage={previousUrl ? goToPreviousPage : null}
-      />
-    </>
+    <Router>
+      <Routes>
+        <Route
+          path="/pokemon"
+          element={(
+            <PokemonList
+              pokemon={pokemon}
+              goToNextPage={nextUrl ? goToNextPage : null}
+              goToPreviousPage={previousUrl ? goToPreviousPage : null}
+            />
+)}
+        />
+      </Routes>
+    </Router>
   );
 }
 
