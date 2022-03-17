@@ -54,7 +54,7 @@ function App() {
             <PokemonList
               pokemon={pokemon}
               goToNextPage={nextUrl ? goToNextPage : null}
-              goToPreviousPage={previousUrl ? goToPreviousPage : 5}
+              goToPreviousPage={previousUrl ? goToPreviousPage : null}
             />
             )}
         />
