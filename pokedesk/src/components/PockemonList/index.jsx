@@ -1,16 +1,17 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { PropTypes } from 'prop-types';
 import Pagination from '../Pagination';
+// import PokemonListCard from '../PokemonListCard';
 
 export default function PockemonList({ pokemon, goToNextPage, goToPreviousPage }) {
   return (
     <div>
       {pokemon.map((p) => (
-        <div key={p.name}>
+        <div>
+          {/* <PokemonListCard detail={p.url} key={p.name} /> */}
           {p.name}
           <br />
           {p.url}
-
         </div>
       ))}
       <Pagination
