@@ -7,6 +7,10 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -17,7 +21,6 @@
 
 .list__box {
   width: 90%;
-  gap: 1vmin;
   -webkit-box-shadow: 0 0 0 2px #000;
           box-shadow: 0 0 0 2px #000;
   display: -ms-grid;
@@ -33,6 +36,7 @@
   height: 20vh;
   -webkit-box-shadow: 0 0 0 2px #000;
           box-shadow: 0 0 0 2px #000;
+  margin: 8px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -51,9 +55,6 @@
 .list__navigation {
   width: 100vw;
   height: 10vh;
-  position: fixed;
-  bottom: 0;
-  left: 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

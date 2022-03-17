@@ -1,0 +1,33 @@
+.pagination {
+
+    &__previous-button {
+        position: absolute;
+        right: 50vw;
+        border-radius: 5vh;
+        margin: 0 5px;
+        background-color: grey;
+        color: #fff;
+        outline: 2px solid #000;
+        cursor: pointer;
+
+        &:hover {
+            background-color: rgb(179, 179, 179);
+        }
+    }
+
+    &__next-button {
+        position: absolute;
+        left: 50vw;
+        border-radius: 5vh;
+        margin: 0 5px;
+        background-color: grey;
+        color: #fff;
+        outline: 2px solid #000;
+        cursor: pointer;
+
+        &:hover {
+            background-color: rgb(179, 179, 179);
+        }
+    }
+
+}
