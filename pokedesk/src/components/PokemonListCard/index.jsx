@@ -3,25 +3,37 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
 
-export default function PokemonListCard({ detail }) {
-  // const [detailUrl, setDetailUrl] = useState([detail])
-  const [pokemon, usePokemon] = useState({});
+export default function PokemonListCard({ detailUrl }) {
+  const [name, setName] = useState('');
+  const [height, setHeight] = useState('');
+  const [weight, setWeight] = useState('');
+  const [types, setTypes] = useState('');
+  const [id, setId] = useState('');
+  const [firstImage, setFirstImage] = useState('');
+  const [secondImage, setSecondImage] = useState('');
 
-  axios.get([detail]).then((res) => {
-    usePokemon(res.data);
-    console.log(`test:::: ${JSON.stringify(res.data.name)}`);
+  axios.get(detailUrl).then((res) => {
+    // setPokemonCard(res.data);
+    setName(res.data.name);
+    setId(res.data.id);
+    setHeight(res.data.height);
+    setWeight(res.data.weight);
+    setTypes(res.data.types.map((arr) => arr.type.name).join(' '));
+    setFirstImage(res.data.sprites.other.dream_world.front_default);
+    setSecondImage(res.data.sprites.front_default);
   });
 
-  const {
-    name, height, weight, types
-  } = pokemon;
   return (
     <>
       {/* // <Link
     //   to={`pokemons/${id}`}
     // > */}
       <h3 className="card">{name}</h3>
+      <img src={firstImage || secondImage} alt={name} />
       <p>
+        Id:
+        {id}
+        <br />
         Height:
         {' '}
         {height}
@@ -32,7 +44,7 @@ export default function PokemonListCard({ detail }) {
         <br />
         Types:
         {' '}
-        {types.map(((item) => item.type.name))}
+        {types}
         <br />
       </p>
       {/* </Link> */}
@@ -41,5 +53,5 @@ export default function PokemonListCard({ detail }) {
 }
 
 PokemonListCard.propTypes = {
-  detail: PropTypes.string.isRequired
+  detailUrl: PropTypes.string.isRequired
 };
