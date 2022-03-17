@@ -1,5 +1,5 @@
 import React from 'react';
-import { PropTypes } from 'prop-types';
+import PropTypes from 'prop-types';
 import Pagination from '../Pagination';
 
 export default function PockemonList({ pokemon, goToNextPage, goToPreviousPage }) {
@@ -22,7 +22,7 @@ export default function PockemonList({ pokemon, goToNextPage, goToPreviousPage }
 }
 
 PockemonList.propTypes = {
-  pokemon: PropTypes.shape([]).isRequired,
+  pokemon: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
   goToNextPage: PropTypes.func.isRequired,
   goToPreviousPage: PropTypes.func.isRequired
 };

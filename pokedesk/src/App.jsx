@@ -28,8 +28,6 @@ function App() {
       setLoading(false);
       setNextUrl(res.data.next);
       setPreviousUrl(res.data.previous);
-      console.log(`currentUrl: ${currentUrl}`);
-      console.table(res.data);
       setPokemon(res.data.results);
     });
 
@@ -50,18 +48,17 @@ function App() {
     <Router>
       <Routes>
         <Route
-          path="/pokemon"
+          path="/pokemons"
           element={(
             <PokemonList
               pokemon={pokemon}
               goToNextPage={nextUrl ? goToNextPage : null}
-              goToPreviousPage={previousUrl ? goToPreviousPage : null}
+              goToPreviousPage={previousUrl ? goToPreviousPage : 5}
             />
             )}
         />
-        <Route path="/pokemon/:id" element={<PokemonDetail />} />
+        <Route path="/pokemons/:id" element={<PokemonDetail />} />
         <Route path="/" element={<Navigate to="/pokemons" />} />
-
       </Routes>
     </Router>
   );
