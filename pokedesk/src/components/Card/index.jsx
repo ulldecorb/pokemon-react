@@ -2,9 +2,9 @@ import React, { useState, Suspense } from 'react';
 // import { Link } from 'react-router-dom';
 import axios from 'axios';
 import PropTypes from 'prop-types';
-import './cart.css';
+import './card.css';
 
-export default function PokemonListCard({ detailUrl }) {
+export default function Card({ detailUrl }) {
   const [name, setName] = useState('');
   const [height, setHeight] = useState('');
   const [weight, setWeight] = useState('');
@@ -56,6 +56,6 @@ export default function PokemonListCard({ detailUrl }) {
   );
 }
 
-PokemonListCard.propTypes = {
+Card.propTypes = {
   detailUrl: PropTypes.string.isRequired
 };

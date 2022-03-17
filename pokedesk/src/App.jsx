@@ -6,8 +6,8 @@ import {
   Navigate
 } from 'react-router-dom';
 import axios from 'axios';
-import PokemonList from './components/PockemonList';
-import PokemonDetail from './components/PokemonDetail';
+import List from './components/List';
+import Detail from './components/Detail';
 // import Pagination from './components/Pagination';
 import Loading from './components/Loading';
 // import './App.css';
@@ -50,14 +50,14 @@ function App() {
         <Route
           path="/pokemons"
           element={(
-            <PokemonList
+            <List
               pokemon={pokemon}
               goToNextPage={nextUrl ? goToNextPage : null}
               goToPreviousPage={previousUrl ? goToPreviousPage : null}
             />
             )}
         />
-        <Route path="/pokemons/:id" element={<PokemonDetail />} />
+        <Route path="/pokemons/:id" element={<Detail />} />
         <Route path="/" element={<Navigate to="/pokemons" />} />
       </Routes>
     </Router>
