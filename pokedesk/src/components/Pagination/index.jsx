@@ -12,10 +12,10 @@ export default function Pagination({ goToNextPage, goToPreviousPage }) {
   };
 
   return (
-    <div className="pagination">
+    <footer className="pagination">
       {goToPreviousPage && <button className="pagination__previous-button" type="button" onClick={handlePrevPagination}>Previous</button>}
       {goToNextPage && <button className="pagination__next-button" type="button" onClick={handleNextPagination}>Next</button>}
-    </div>
+    </footer>
   );
 }
 

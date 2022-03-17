@@ -1,9 +1,19 @@
 .pagination {
+    width: 100vw;
+    height: 5vh;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
 
     &__previous-button {
+        width: 10vw;
         position: absolute;
         right: 50vw;
         border-radius: 5vh;
+        font-size: 2vmin;
         margin: 0 5px;
         background-color: grey;
         color: #fff;
@@ -16,9 +26,11 @@
     }
 
     &__next-button {
+        width: 10vw;
         position: absolute;
         left: 50vw;
         border-radius: 5vh;
+        font-size: 2vmin;
         margin: 0 5px;
         background-color: grey;
         color: #fff;
@@ -29,5 +41,4 @@
             background-color: rgb(179, 179, 179);
         }
     }
-
 }

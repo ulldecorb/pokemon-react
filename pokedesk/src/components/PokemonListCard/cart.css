@@ -1,0 +1,16 @@
+img {
+  width: 30%;
+  height: 30%;
+  min-width: 30%;
+  min-height: 30%;
+}
+
+h3 {
+  color: red;
+  font-size: 2vmin;
+}
+
+p {
+  font-size: 1.5vmin;
+}
+/*# sourceMappingURL=cart.css.map */

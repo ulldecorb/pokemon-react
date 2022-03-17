@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, Suspense } from 'react';
 // import { Link } from 'react-router-dom';
 import axios from 'axios';
 import PropTypes from 'prop-types';
+import './cart.css';
 
 export default function PokemonListCard({ detailUrl }) {
   const [name, setName] = useState('');
@@ -29,7 +30,10 @@ export default function PokemonListCard({ detailUrl }) {
     //   to={`pokemons/${id}`}
     // > */}
       <h3 className="card">{name}</h3>
-      <img src={firstImage || secondImage} alt={name} />
+      <Suspense>
+
+        <img src={firstImage || secondImage} alt={name} />
+      </Suspense>
       <p>
         Id:
         {id}

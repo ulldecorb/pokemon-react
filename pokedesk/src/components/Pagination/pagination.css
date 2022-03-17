@@ -1,7 +1,26 @@
+.pagination {
+  width: 100vw;
+  height: 5vh;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 .pagination__previous-button {
+  width: 10vw;
   position: absolute;
   right: 50vw;
   border-radius: 5vh;
+  font-size: 2vmin;
   margin: 0 5px;
   background-color: grey;
   color: #fff;
@@ -14,9 +33,11 @@
 }
 
 .pagination__next-button {
+  width: 10vw;
   position: absolute;
   left: 50vw;
   border-radius: 5vh;
+  font-size: 2vmin;
   margin: 0 5px;
   background-color: grey;
   color: #fff;

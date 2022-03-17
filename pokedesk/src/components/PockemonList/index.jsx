@@ -21,12 +21,10 @@ export default function PockemonList({ pokemon, goToNextPage, goToPreviousPage }
           </div>
         ))}
       </div>
-      <footer className="list__navigation">
-        <Pagination
-          goToNextPage={goToNextPage}
-          goToPreviousPage={goToPreviousPage}
-        />
-      </footer>
+      <Pagination
+        goToNextPage={goToNextPage}
+        goToPreviousPage={goToPreviousPage}
+      />
     </div>
   );
 }
