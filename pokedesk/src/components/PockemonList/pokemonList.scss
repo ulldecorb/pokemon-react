@@ -1,0 +1,47 @@
+.list {
+    position: absolute;
+    top: 0;
+    left:0;
+    width: 100vw;
+    height: 100vh;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+
+    &__box {
+        width: 90%;
+        // height: 100%;
+        // margin:  3vh auto;
+        // gap: 1vmin;
+        box-shadow: 0 0 0 2px #000;
+        display:grid;
+        grid-template-columns: auto auto auto auto auto;
+        grid-template-rows: repeat(4,25%);
+        // grid-template-rows: repeat(5, 20%);
+    }
+
+    &__card {
+        width: auto;
+        height: 20vh;
+        box-shadow: 0 0 0 2px #000;
+        margin: 8px;
+        // margin: 5px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__navigation {
+        width: 100vw;
+        height: 10vh;
+        // position: fixed;
+        // bottom: 0;
+        // left: 0;
+        display: flex; 
+        justify-content: center;
+        align-items: center;
+    }
+}
