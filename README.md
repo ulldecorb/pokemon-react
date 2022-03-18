@@ -17,7 +17,7 @@ npm start
 ## Features 
 ### Done
 * Paginate over 900 + pokemons
+* Add routes
 ### Todo
 * Add search function
 * Add favorites selection
-* Add routes
