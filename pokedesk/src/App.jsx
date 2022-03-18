@@ -8,9 +8,7 @@ import {
 import axios from 'axios';
 import List from './components/List';
 import Detail from './components/Detail';
-// import Pagination from './components/Pagination';
 import Loading from './components/Loading';
-// import './App.css';
 
 function App() {
   const [pokemon, setPokemon] = useState([]);
