@@ -39,26 +39,37 @@
         justify-content: center;
 
 
-        .info{
-            &__box{
-                p {
-                    text-align: left;
-                    margin: 0.5vh 0.5vw;
-                    width: 15vw;
-                    font-size: 1.5rem;
-                    border-radius: 2vh;
-                    background-color: white;
-                    padding-left: 1vw;
-                    outline: 0.5vmin solid #000;
-                    color: rgb(87, 86, 86);
-                }
-            
-            }
+        .info__name{
+            text-align: left;
+            margin: 0.5vh 0.5vw;
+            width: 15vw;
+            font-size: 1.5rem;
+            border-radius: 2vh;
+            background-color: white;
+            padding-left: 1vw;
+            outline: 0.2vmin solid #000;
+            color: rgb(87, 86, 86);
+        }
+    }
+
+    &__back-link {
+        text-decoration: none;
+        position: absolute;
+        bottom: 2vh;
+        border-radius: 2vh;
+        background-color: #fff;
+        padding: 0.5vmax 1vmax;
+        cursor: pointer;
+
+        &:hover {
+            color: grey;
         }
     }
 }
 
 @media only screen and (max-width: 768px) {
-
-
+    .info__name {
+        color: pink
+    }
+    
 }

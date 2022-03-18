@@ -43,31 +43,36 @@ export default function Detail() {
       </figure>
       <article className="detail__info">
         <div className="info__box">
-          <p className="detail__name">
+          <p className="info__name">
             id:
             {' '}
             {id}
           </p>
-          <p className="detail__name">
+          <p className="info__name">
             height:
             {' '}
             {height}
           </p>
         </div>
         <div className="info__box">
-          <p className="detail__name">
+          <p className="info__name">
             types:
             {' '}
             {types}
           </p>
-          <p className="detail__name">
+          <p className="info__name">
             weight:
             {' '}
             {weight}
           </p>
         </div>
       </article>
-      <Link to="../">Back to List</Link>
+      <Link
+        to="../"
+        className="detail__back-link"
+      >
+        Back
+      </Link>
 
     </div>
   );
