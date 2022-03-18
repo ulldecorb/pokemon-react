@@ -18,7 +18,8 @@
         box-shadow: 0 0 0 2px #000;
         display:grid;
         grid-template-columns: auto auto auto auto auto;
-        grid-template-rows: repeat(4,25%);
+        grid-template-rows: repeat( 4, 25% );
+        grid-template-rows: auto auto auto;
         // grid-template-rows: repeat(5, 20%);
     }
 
@@ -30,17 +31,6 @@
         // margin: 5px;
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
-    &__navigation {
-        width: 100vw;
-        height: 10vh;
-        // position: fixed;
-        // bottom: 0;
-        // left: 0;
-        display: flex; 
         justify-content: center;
         align-items: center;
     }
