@@ -54,8 +54,34 @@
 
     &__back-link {
         text-decoration: none;
-        position: absolute;
+        position: fixed;
         bottom: 2vh;
+        border-radius: 2vh;
+        background-color: #fff;
+        padding: 0.5vmax 1vmax;
+        cursor: pointer;
+
+        &:hover {
+            color: grey;
+        }
+    }
+    &__previous-nav-link {
+        text-decoration: none;
+        position: fixed;
+        left: 2vh;
+        border-radius: 2vh;
+        background-color: #fff;
+        padding: 0.5vmax 1vmax;
+        cursor: pointer;
+
+        &:hover {
+            color: grey;
+        } 
+    }
+    &__next-nav-link {
+        text-decoration: none;
+        position: fixed;
+        right: 2vh;
         border-radius: 2vh;
         background-color: #fff;
         padding: 0.5vmax 1vmax;

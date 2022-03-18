@@ -73,7 +73,7 @@
 
 .detail__back-link {
   text-decoration: none;
-  position: absolute;
+  position: fixed;
   bottom: 2vh;
   border-radius: 2vh;
   background-color: #fff;
@@ -82,6 +82,34 @@
 }
 
 .detail__back-link:hover {
+  color: grey;
+}
+
+.detail__previous-nav-link {
+  text-decoration: none;
+  position: fixed;
+  left: 2vh;
+  border-radius: 2vh;
+  background-color: #fff;
+  padding: 0.5vmax 1vmax;
+  cursor: pointer;
+}
+
+.detail__previous-nav-link:hover {
+  color: grey;
+}
+
+.detail__next-nav-link {
+  text-decoration: none;
+  position: fixed;
+  right: 2vh;
+  border-radius: 2vh;
+  background-color: #fff;
+  padding: 0.5vmax 1vmax;
+  cursor: pointer;
+}
+
+.detail__next-nav-link:hover {
   color: grey;
 }
 

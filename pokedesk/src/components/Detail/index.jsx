@@ -15,7 +15,6 @@ export default function Detail() {
   const [id, setId] = useState('');
   const [firstImage, setFirstImage] = useState('');
   const [secondImage, setSecondImage] = useState('');
-
   const [loading, setLoading] = useState(true);
   if (!url) { setUrl(`https://pokeapi.co/api/v2/pokemon/${param}/`); }
 
@@ -37,6 +36,14 @@ export default function Detail() {
 
     return () => cancel();
   }, [url]);
+
+  const handlePreviousPokemon = () => {
+    setUrl(`https://pokeapi.co/api/v2/pokemon/${id - 1}/`);
+  };
+
+  const handleNextPokemon = () => {
+    setUrl(`https://pokeapi.co/api/v2/pokemon/${id + 1}/`);
+  };
 
   if (loading) return <Loading />;
 
@@ -82,6 +89,20 @@ export default function Detail() {
         className="detail__back-link"
       >
         Back
+      </Link>
+      <Link
+        to={`../pokemons/${id - 1}/`}
+        className="detail__previous-nav-link"
+        onClick={handlePreviousPokemon}
+      >
+        Previous
+      </Link>
+      <Link
+        to={`../pokemons/${id + 1}/`}
+        className="detail__next-nav-link"
+        onClick={handleNextPokemon}
+      >
+        Next
       </Link>
     </div>
   );
