@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+// import Error from '../Error';
 // import PropTypes from 'prop-types';
 
 export default function Detail() {
@@ -32,7 +33,6 @@ export default function Detail() {
     <div>
       Detail id =
       {' '}
-      {/* {hello} */}
       {pokemonName}
       {id}
       {height}
@@ -41,11 +41,6 @@ export default function Detail() {
       <br />
       {name}
       <img src={firstImage || secondImage} alt={name} />
-
     </div>
   );
 }
-
-// Detail.propTypes = {
-//   hello: PropTypes.string.isRequired
-// };
