@@ -57,7 +57,7 @@ function App() {
             />
             )}
         />
-        <Route path="/pokemons/:name" element={<Detail />} />
+        <Route path="/pokemons/:param" element={<Detail />} />
         <Route path="/" element={<Navigate to="/pokemons" />} />
       </Routes>
     </Router>
