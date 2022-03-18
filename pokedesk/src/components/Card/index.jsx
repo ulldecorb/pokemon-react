@@ -1,10 +1,11 @@
-import React, { useState, Suspense } from 'react';
-// import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import PropTypes from 'prop-types';
 import './card.css';
 
 export default function Card({ detailUrl }) {
+  // const [pokemon, setPokemon] = useState('');
   const [name, setName] = useState('');
   const [height, setHeight] = useState('');
   const [weight, setWeight] = useState('');
@@ -14,7 +15,7 @@ export default function Card({ detailUrl }) {
   const [secondImage, setSecondImage] = useState('');
 
   axios.get(detailUrl).then((res) => {
-    // setPokemonCard(res.data);
+    // setPokemon(res.data);
     setName(res.data.name);
     setId(res.data.id);
     setHeight(res.data.height);
@@ -25,15 +26,13 @@ export default function Card({ detailUrl }) {
   });
 
   return (
-    <>
-      {/* // <Link
-    //   to={`pokemons/${id}`}
-    // > */}
-      <h3 className="card">{name}</h3>
-      <Suspense>
 
-        <img src={firstImage || secondImage} alt={name} />
-      </Suspense>
+    <Link
+      to={`./${name}`}
+      hello="hello world"
+    >
+      <h3 className="card">{name}</h3>
+      <img src={firstImage || secondImage} alt={name} />
       <p>
         Id:
         {id}
@@ -51,8 +50,7 @@ export default function Card({ detailUrl }) {
         {types}
         <br />
       </p>
-      {/* </Link> */}
-    </>
+    </Link>
   );
 }
 
