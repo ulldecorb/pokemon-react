@@ -29,10 +29,10 @@ export default function Card({ detailUrl }) {
 
     <Link
       to={`./${name}`}
-      hello="hello world"
+      className="card"
     >
-      <h3 className="card">{name}</h3>
-      <img src={firstImage || secondImage} alt={name} />
+      <h3 className="card__title">{name}</h3>
+      <img src={firstImage || secondImage} alt={name} className="card__image" />
       <p>
         Id:
         {id}
