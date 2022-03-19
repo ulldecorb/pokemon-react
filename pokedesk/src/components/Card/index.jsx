@@ -13,7 +13,7 @@ export default function Card({ detailUrl, favorites, setFavorites }) {
   const [id, setId] = useState('');
   const [firstImage, setFirstImage] = useState('');
   const [secondImage, setSecondImage] = useState('');
-  const [favoritesCard, setFavoritesCard] = useState([]);
+  // const [favoritesCard, setFavoritesCard] = useState(favorites);
 
   axios.get(detailUrl).then((res) => {
     // setPokemon(res.data);
@@ -26,12 +26,23 @@ export default function Card({ detailUrl, favorites, setFavorites }) {
     setSecondImage(res.data.sprites.front_default);
   });
 
-  const handleFavorite = () => {
-    const checkFavorites = favoritesCard.includes(name);
-    if (checkFavorites) { setFavoritesCard([...favoritesCard, name]); }
-    setFavorites(favoritesCard);
-    console.log(`fav${favorites}`);
-    console.log(`favCard${favoritesCard}`);
+  const handleSwitchFavorite = () => {
+    const checkFavorites = favorites.includes(name);
+    if (checkFavorites) {
+      const newFavorites = favorites.filter((p) => p !== name);
+      console.log(`REMOVE: ${newFavorites}`);
+      setFavorites(newFavorites);
+      setFavorites(newFavorites);
+    } else {
+      const newFavorites = [...favorites, name];
+      console.log(`ADD: ${newFavorites}`);
+      setFavorites(newFavorites);
+      setFavorites(newFavorites);
+    }
+    // setFavoritesCard([name]);
+  //   console.log(`checkFavorites: ${checkFavorites}`);
+  //   console.log(`fav: ${favorites}`);
+  //   console.log(`favCard: ${favoritesCard}`);
   };
 
   return (
@@ -60,7 +71,7 @@ export default function Card({ detailUrl, favorites, setFavorites }) {
           <br />
         </p>
       </Link>
-      <button type="button" onClick={handleFavorite}>
+      <button type="button" onClick={handleSwitchFavorite}>
         Add
         {' '}
         {name}

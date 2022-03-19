@@ -5,13 +5,15 @@ import Card from '../Card';
 import Search from '../search';
 import './list.css';
 
-export default function List({ pokemon, goToNextPage, goToPreviousPage }) {
+export default function List({
+  pokemon, goToNextPage, goToPreviousPage, favorites, setFavorites
+}) {
   return (
     <div className="list">
       <Search />
       <div className="list__box">
         {pokemon.map((p) => (
-          <Card detailUrl={p.url} key={p.name} />
+          <Card detailUrl={p.url} key={p.name} favorites={favorites} setFavorites={setFavorites} />
         ))}
       </div>
       <Pagination
@@ -25,5 +27,7 @@ export default function List({ pokemon, goToNextPage, goToPreviousPage }) {
 List.propTypes = {
   pokemon: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
   goToNextPage: PropTypes.func.isRequired,
-  goToPreviousPage: PropTypes.func.isRequired
+  goToPreviousPage: PropTypes.func.isRequired,
+  favorites: PropTypes.arrayOf(PropTypes.string).isRequired,
+  setFavorites: PropTypes.func.isRequired
 };
