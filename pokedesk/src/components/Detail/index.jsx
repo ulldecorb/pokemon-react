@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
+import { PropTypes } from 'prop-types';
 // import Error from '../Error';
 import Loading from '../Loading';
 import './detail.css';
 
-export default function Detail() {
+export default function Detail({ favorites, setFavorites }) {
   const { param } = useParams();
   const [url, setUrl] = useState();
   const [name, setName] = useState('');
@@ -35,7 +36,7 @@ export default function Detail() {
     });
 
     return () => cancel();
-  }, [url]);
+  }, [favorites]);
 
   const handlePreviousPokemon = () => {
     setUrl(`https://pokeapi.co/api/v2/pokemon/${id - 1}/`);
@@ -43,6 +44,19 @@ export default function Detail() {
 
   const handleNextPokemon = () => {
     setUrl(`https://pokeapi.co/api/v2/pokemon/${id + 1}/`);
+  };
+
+  const checkIsFavorite = () => favorites.includes(name);
+
+  const handleSwitchFavorite = () => {
+    const checkFavorites = favorites.includes(name);
+    if (checkFavorites) {
+      const newFavorites = favorites.filter((p) => p !== name);
+      setFavorites(newFavorites);
+    } else {
+      const newFavorites = [...favorites, name];
+      setFavorites(newFavorites);
+    }
   };
 
   if (loading) return <Loading />;
@@ -90,6 +104,15 @@ export default function Detail() {
       >
         Back
       </Link>
+      <button
+        type="button"
+        onClick={handleSwitchFavorite}
+        className={checkIsFavorite() ? 'green' : 'red'}
+      >
+        Add
+        {' '}
+        {name}
+      </button>
       <Link
         to={`../pokemons/${id - 1}/`}
         className="detail__previous-nav-link"
@@ -107,3 +130,8 @@ export default function Detail() {
     </div>
   );
 }
+
+Detail.propTypes = {
+  favorites: PropTypes.arrayOf(PropTypes.string).isRequired,
+  setFavorites: PropTypes.func.isRequired
+};

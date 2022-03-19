@@ -35,7 +35,6 @@ function App() {
     return () => cancel();
   }, [currentUrl]);
 
-  // console.log(setFavorites);
   const goToNextPage = () => {
     setCurrentUrl(nextUrl);
   };
@@ -61,7 +60,15 @@ function App() {
             />
             )}
         />
-        <Route path="/pokemons/:param" element={<Detail favorites={favorites} />} />
+        <Route
+          path="/pokemons/:param"
+          element={(
+            <Detail
+              favorites={favorites}
+              setFavorites={setFavorites}
+            />
+          )}
+        />
         <Route path="/" element={<Navigate to="/pokemons" />} />
         <Route path="/pokemons/favorites" element={<Favorites data={favorites} />} />
         <Route path="*" element={<Error />} />

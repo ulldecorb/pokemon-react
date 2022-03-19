@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 import './card.css';
 
 export default function Card({ detailUrl, favorites, setFavorites }) {
-  // const [pokemon, setPokemon] = useState('');
   const [name, setName] = useState('');
   const [height, setHeight] = useState('');
   const [weight, setWeight] = useState('');
@@ -13,10 +12,8 @@ export default function Card({ detailUrl, favorites, setFavorites }) {
   const [id, setId] = useState('');
   const [firstImage, setFirstImage] = useState('');
   const [secondImage, setSecondImage] = useState('');
-  // const [favoritesCard, setFavoritesCard] = useState(favorites);
 
   axios.get(detailUrl).then((res) => {
-    // setPokemon(res.data);
     setName(res.data.name);
     setId(res.data.id);
     setHeight(res.data.height);
@@ -26,23 +23,17 @@ export default function Card({ detailUrl, favorites, setFavorites }) {
     setSecondImage(res.data.sprites.front_default);
   });
 
+  const checkIsFavorite = () => favorites.includes(name);
+
   const handleSwitchFavorite = () => {
     const checkFavorites = favorites.includes(name);
     if (checkFavorites) {
       const newFavorites = favorites.filter((p) => p !== name);
-      console.log(`REMOVE: ${newFavorites}`);
-      setFavorites(newFavorites);
       setFavorites(newFavorites);
     } else {
       const newFavorites = [...favorites, name];
-      console.log(`ADD: ${newFavorites}`);
-      setFavorites(newFavorites);
       setFavorites(newFavorites);
     }
-    // setFavoritesCard([name]);
-  //   console.log(`checkFavorites: ${checkFavorites}`);
-  //   console.log(`fav: ${favorites}`);
-  //   console.log(`favCard: ${favoritesCard}`);
   };
 
   return (
@@ -71,7 +62,11 @@ export default function Card({ detailUrl, favorites, setFavorites }) {
           <br />
         </p>
       </Link>
-      <button type="button" onClick={handleSwitchFavorite}>
+      <button
+        type="button"
+        onClick={handleSwitchFavorite}
+        className={checkIsFavorite() ? 'green' : 'red'}
+      >
         Add
         {' '}
         {name}
