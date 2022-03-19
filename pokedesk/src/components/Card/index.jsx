@@ -4,8 +4,7 @@ import axios from 'axios';
 import PropTypes from 'prop-types';
 import './card.css';
 
-export default function Card({ detailUrl }) {
-  // const [pokemon, setPokemon] = useState('');
+export default function Card({ detailUrl, favorites, setFavorites }) {
   const [name, setName] = useState('');
   const [height, setHeight] = useState('');
   const [weight, setWeight] = useState('');
@@ -15,7 +14,6 @@ export default function Card({ detailUrl }) {
   const [secondImage, setSecondImage] = useState('');
 
   axios.get(detailUrl).then((res) => {
-    // setPokemon(res.data);
     setName(res.data.name);
     setId(res.data.id);
     setHeight(res.data.height);
@@ -25,35 +23,60 @@ export default function Card({ detailUrl }) {
     setSecondImage(res.data.sprites.front_default);
   });
 
-  return (
+  const checkIsFavorite = () => favorites.includes(name);
 
-    <Link
-      to={`./${name}`}
-      className="card"
-    >
-      <h3 className="card__title">{name}</h3>
-      <img src={firstImage || secondImage} alt={name} className="card__image" />
-      <p>
-        Id:
-        {id}
-        <br />
-        Height:
+  const handleSwitchFavorite = () => {
+    const checkFavorites = favorites.includes(name);
+    if (checkFavorites) {
+      const newFavorites = favorites.filter((p) => p !== name);
+      setFavorites(newFavorites);
+    } else {
+      const newFavorites = [...favorites, name];
+      setFavorites(newFavorites);
+    }
+  };
+
+  return (
+    <>
+      <Link
+        to={`./${name}`}
+        className="card"
+      >
+        <h3 className="card__title">{name}</h3>
+        <img src={firstImage || secondImage} alt={name} className="card__image" />
+        <p>
+          Id:
+          {id}
+          <br />
+          Height:
+          {' '}
+          {height}
+          <br />
+          Weight:
+          {' '}
+          {weight}
+          <br />
+          Types:
+          {' '}
+          {types}
+          <br />
+        </p>
+      </Link>
+      <button
+        type="button"
+        onClick={handleSwitchFavorite}
+        className={checkIsFavorite() ? 'green' : 'red'}
+      >
+        Add
         {' '}
-        {height}
-        <br />
-        Weight:
-        {' '}
-        {weight}
-        <br />
-        Types:
-        {' '}
-        {types}
-        <br />
-      </p>
-    </Link>
+        {name}
+      </button>
+    </>
   );
 }
 
 Card.propTypes = {
-  detailUrl: PropTypes.string.isRequired
+  detailUrl: PropTypes.string.isRequired,
+  favorites: PropTypes.arrayOf(PropTypes.string).isRequired,
+  setFavorites: PropTypes.func.isRequired
 };

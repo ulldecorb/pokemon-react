@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
+import { PropTypes } from 'prop-types';
 // import Error from '../Error';
-// import PropTypes from 'prop-types';
+import Loading from '../Loading';
 import './detail.css';
 
-export default function Detail() {
-  // const [pokemon, setPokemon] = useState();
+export default function Detail({ favorites, setFavorites }) {
   const { param } = useParams();
   const [url, setUrl] = useState();
   const [name, setName] = useState('');
@@ -16,19 +16,50 @@ export default function Detail() {
   const [id, setId] = useState('');
   const [firstImage, setFirstImage] = useState('');
   const [secondImage, setSecondImage] = useState('');
-  // const [pokemonDetail, setPokemonDetail] = useState([]);
+  const [loading, setLoading] = useState(true);
   if (!url) { setUrl(`https://pokeapi.co/api/v2/pokemon/${param}/`); }
 
-  axios.get(url).then((res) => {
-    // setPokemon(res.data);
-    setName(res.data.name);
-    setId(res.data.id);
-    setHeight(res.data.height);
-    setWeight(res.data.weight);
-    setTypes(res.data.types.map((arr) => arr.type.name).join(' '));
-    setFirstImage(res.data.sprites.other['official-artwork'].front_default);
-    setSecondImage(res.data.sprites.front_default);
-  });
+  useEffect(() => {
+    setLoading(true);
+    let cancel;
+    axios.get(url, {
+      cancelToken: new axios.CancelToken((c) => { cancel = c; })
+    }).then((res) => {
+      setLoading(false);
+      setName(res.data.name);
+      setId(res.data.id);
+      setHeight(res.data.height);
+      setWeight(res.data.weight);
+      setTypes(res.data.types.map((arr) => arr.type.name).join(' '));
+      setFirstImage(res.data.sprites.other['official-artwork'].front_default);
+      setSecondImage(res.data.sprites.front_default);
+    });
+
+    return () => cancel();
+  }, [favorites]);
+
+  const handlePreviousPokemon = () => {
+    setUrl(`https://pokeapi.co/api/v2/pokemon/${id - 1}/`);
+  };
+
+  const handleNextPokemon = () => {
+    setUrl(`https://pokeapi.co/api/v2/pokemon/${id + 1}/`);
+  };
+
+  const checkIsFavorite = () => favorites.includes(name);
+
+  const handleSwitchFavorite = () => {
+    const checkFavorites = favorites.includes(name);
+    if (checkFavorites) {
+      const newFavorites = favorites.filter((p) => p !== name);
+      setFavorites(newFavorites);
+    } else {
+      const newFavorites = [...favorites, name];
+      setFavorites(newFavorites);
+    }
+  };
+
+  if (loading) return <Loading />;
 
   return (
     <div className="detail">
@@ -73,7 +104,34 @@ export default function Detail() {
       >
         Back
       </Link>
-
+      <button
+        type="button"
+        onClick={handleSwitchFavorite}
+        className={checkIsFavorite() ? 'green' : 'red'}
+      >
+        Add
+        {' '}
+        {name}
+      </button>
+      <Link
+        to={`../pokemons/${id - 1}/`}
+        className="detail__previous-nav-link"
+        onClick={handlePreviousPokemon}
+      >
+        Previous
+      </Link>
+      <Link
+        to={`../pokemons/${id + 1}/`}
+        className="detail__next-nav-link"
+        onClick={handleNextPokemon}
+      >
+        Next
+      </Link>
     </div>
   );
 }
+
+Detail.propTypes = {
+  favorites: PropTypes.arrayOf(PropTypes.string).isRequired,
+  setFavorites: PropTypes.func.isRequired
+};
