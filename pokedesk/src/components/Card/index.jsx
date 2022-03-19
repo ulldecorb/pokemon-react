@@ -4,7 +4,7 @@ import axios from 'axios';
 import PropTypes from 'prop-types';
 import './card.css';
 
-export default function Card({ detailUrl }) {
+export default function Card({ detailUrl, favorites, setFavorites }) {
   // const [pokemon, setPokemon] = useState('');
   const [name, setName] = useState('');
   const [height, setHeight] = useState('');
@@ -13,6 +13,7 @@ export default function Card({ detailUrl }) {
   const [id, setId] = useState('');
   const [firstImage, setFirstImage] = useState('');
   const [secondImage, setSecondImage] = useState('');
+  const [favoritesCard, setFavoritesCard] = useState([]);
 
   axios.get(detailUrl).then((res) => {
     // setPokemon(res.data);
@@ -25,35 +26,51 @@ export default function Card({ detailUrl }) {
     setSecondImage(res.data.sprites.front_default);
   });
 
-  return (
+  const handleFavorite = () => {
+    const checkFavorites = favoritesCard.includes(name);
+    if (checkFavorites) { setFavoritesCard([...favoritesCard, name]); }
+    setFavorites(favoritesCard);
+    console.log(`fav${favorites}`);
+    console.log(`favCard${favoritesCard}`);
+  };
 
-    <Link
-      to={`./${name}`}
-      className="card"
-    >
-      <h3 className="card__title">{name}</h3>
-      <img src={firstImage || secondImage} alt={name} className="card__image" />
-      <p>
-        Id:
-        {id}
-        <br />
-        Height:
+  return (
+    <>
+      <Link
+        to={`./${name}`}
+        className="card"
+      >
+        <h3 className="card__title">{name}</h3>
+        <img src={firstImage || secondImage} alt={name} className="card__image" />
+        <p>
+          Id:
+          {id}
+          <br />
+          Height:
+          {' '}
+          {height}
+          <br />
+          Weight:
+          {' '}
+          {weight}
+          <br />
+          Types:
+          {' '}
+          {types}
+          <br />
+        </p>
+      </Link>
+      <button type="button" onClick={handleFavorite}>
+        Add
         {' '}
-        {height}
-        <br />
-        Weight:
-        {' '}
-        {weight}
-        <br />
-        Types:
-        {' '}
-        {types}
-        <br />
-      </p>
-    </Link>
+        {name}
+      </button>
+    </>
   );
 }
 
 Card.propTypes = {
-  detailUrl: PropTypes.string.isRequired
+  detailUrl: PropTypes.string.isRequired,
+  favorites: PropTypes.arrayOf(PropTypes.string).isRequired,
+  setFavorites: PropTypes.func.isRequired
 };
