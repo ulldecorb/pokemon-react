@@ -37,7 +37,7 @@ export default function Card({ detailUrl, favorites, setFavorites }) {
   };
 
   return (
-    <>
+    <div>
       <Link
         to={`./${name}`}
         className="card"
@@ -65,13 +65,11 @@ export default function Card({ detailUrl, favorites, setFavorites }) {
       <button
         type="button"
         onClick={handleSwitchFavorite}
-        className={checkIsFavorite() ? 'green' : 'red'}
+        className={`card__favorite card__favorite--${checkIsFavorite() ? 'favorite' : 'no-favorite'}`}
       >
-        Add
         {' '}
-        {name}
       </button>
-    </>
+    </div>
   );
 }
 

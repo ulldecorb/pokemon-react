@@ -113,6 +113,25 @@
   color: grey;
 }
 
+.detail__favorite {
+  height: 5vmin;
+  width: 5vmin;
+  position: fixed;
+  right: 20%;
+  top: 20%;
+  text-decoration: none;
+  background-color: transparent;
+  border: none;
+}
+
+.detail__favorite--favorite {
+  background-image: url("../../assets/favorite_icon.svg");
+}
+
+.detail__favorite--no-favorite {
+  background-image: url("../../assets/no_favorite_icon.svg");
+}
+
 @media only screen and (max-width: 768px) {
   .info__name {
     color: pink;

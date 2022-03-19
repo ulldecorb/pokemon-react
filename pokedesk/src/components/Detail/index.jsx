@@ -36,7 +36,7 @@ export default function Detail({ favorites, setFavorites }) {
     });
 
     return () => cancel();
-  }, [favorites]);
+  }, [url]);
 
   const handlePreviousPokemon = () => {
     setUrl(`https://pokeapi.co/api/v2/pokemon/${id - 1}/`);
@@ -107,11 +107,9 @@ export default function Detail({ favorites, setFavorites }) {
       <button
         type="button"
         onClick={handleSwitchFavorite}
-        className={checkIsFavorite() ? 'green' : 'red'}
+        className={`detail__favorite detail__favorite--${checkIsFavorite() ? 'favorite' : 'no-favorite'}`}
       >
-        Add
         {' '}
-        {name}
       </button>
       <Link
         to={`../pokemons/${id - 1}/`}

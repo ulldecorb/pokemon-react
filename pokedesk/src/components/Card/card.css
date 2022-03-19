@@ -18,6 +18,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  position: relative;
 }
 
 .card__title {
@@ -34,11 +35,22 @@
   font-size: 1.5vmin;
 }
 
-.green {
-  background-color: green;
+.card__favorite {
+  height: 25px;
+  width: 25px;
+  position: relative;
+  right: -90%;
+  top: -85%;
+  border: none;
+  text-decoration: none;
+  background-color: transparent;
 }
 
-.red {
-  background-color: red;
+.card__favorite--favorite {
+  background-image: url("../../assets/favorite_icon.svg");
+}
+
+.card__favorite--no-favorite {
+  background-image: url("../../assets/no_favorite_icon.svg");
 }
 /*# sourceMappingURL=card.css.map */
