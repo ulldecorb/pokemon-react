@@ -9,7 +9,7 @@ export default function List({
   pokemon, goToNextPage, goToPreviousPage, favorites, setFavorites
 }) {
   return (
-    <div className="list">
+    <main className="list">
       <Search />
       <div className="list__box">
         {pokemon.map((p) => (
@@ -20,7 +20,7 @@ export default function List({
         goToNextPage={goToNextPage}
         goToPreviousPage={goToPreviousPage}
       />
-    </div>
+    </main>
   );
 }
 

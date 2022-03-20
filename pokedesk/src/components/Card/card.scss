@@ -1,6 +1,6 @@
 .card {
     text-decoration: none;
-    width: auto;
+    width: 20vw;
     height: 20vh;
     box-shadow: 0 0 0 2px #000;
     margin: 8px;
@@ -12,12 +12,13 @@
     
     &__title{
         color: red;
-        font-size: 2vmin;
+        font-size: 4vmin;
+        margin: 0.5vmin;
     }
 
     &__image {
-        width: 30%;
-        height:30%;
+        width: 50%;
+        height:50%;
     }
 
     p{
@@ -28,8 +29,8 @@
         height: 25px;
         width:25px;
         position: relative;
-        right: -90%;
-        top:-85%;
+        bottom:67%;
+        left:80%;
         border: none;
         text-decoration: none;
         background-color: transparent;

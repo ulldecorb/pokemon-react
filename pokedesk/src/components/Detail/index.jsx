@@ -65,6 +65,10 @@ export default function Detail({ favorites, setFavorites }) {
     <div className="detail">
       {' '}
       <h2 className="detail__name">{name}</h2>
+      <figure>
+        <img src={firstImage} alt={name} className="detail__background" />
+      </figure>
+      {' '}
       <figure className="detail__image-box">
         <img
           src={firstImage || secondImage}
@@ -131,6 +135,9 @@ export default function Detail({ favorites, setFavorites }) {
       >
         Favorites
       </Link>
+      {/* <figure>
+        <img src={secondImage} alt={name} className="detail__background" />
+      </figure> */}
     </div>
   );
 }
