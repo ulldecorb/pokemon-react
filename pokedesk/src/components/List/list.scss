@@ -16,15 +16,15 @@
         // margin:  3vh auto;
         // gap: 1vmin;
         box-shadow: 0 0 0 2px #000;
-        display:grid;
-        grid-template-columns: auto auto auto auto auto;
-        grid-template-rows: repeat( 4, 25% );
-        grid-template-rows: auto auto auto;
-        // grid-template-rows: repeat(5, 20%);
+        display: flex;
+        flex-wrap: wrap;
+        justify-items: center;
+        align-items: center;
+        
     }
 
     &__card {
-        width: auto;
+        width: 30vw;
         height: 20vh;
         box-shadow: 0 0 0 2px #000;
         margin: 8px;

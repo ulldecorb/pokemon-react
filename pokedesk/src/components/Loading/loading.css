@@ -1,5 +1,11 @@
+body {
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+}
+
 .loading{
-    display: fixed;
+    display: absolute;
     top: 0;
     left: 0;
     height: 100vh;
@@ -9,6 +15,7 @@
     flex-direction: column;;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
 }
 
 .loading__text{

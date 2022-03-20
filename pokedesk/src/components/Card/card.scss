@@ -1,6 +1,6 @@
 .card {
     text-decoration: none;
-    width: auto;
+    width: 20vw;
     height: 20vh;
     box-shadow: 0 0 0 2px #000;
     margin: 8px;
@@ -8,25 +8,40 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: relative;
     
     &__title{
         color: red;
-        font-size: 2vmin;
+        font-size: 4vmin;
+        margin: 0.5vmin;
     }
 
     &__image {
-        width: 30%;
-        height:30%;
+        width: 50%;
+        height:50%;
     }
 
     p{
         font-size: 1.5vmin;
     } 
+
+    &__favorite {
+        height: 25px;
+        width:25px;
+        position: relative;
+        bottom:67%;
+        left:80%;
+        border: none;
+        text-decoration: none;
+        background-color: transparent;
+        
+        &--favorite {
+            background-image: url('../../assets/favorite_icon.svg');
+        }
+        
+        &--no-favorite {
+            background-image: url('../../assets/no_favorite_icon.svg');
+        }
+    }
 }
 
-.green {
-    background-color: green;
-}
-.red {
-    background-color: red;
-}

@@ -36,7 +36,7 @@ export default function Detail({ favorites, setFavorites }) {
     });
 
     return () => cancel();
-  }, [favorites]);
+  }, [url]);
 
   const handlePreviousPokemon = () => {
     setUrl(`https://pokeapi.co/api/v2/pokemon/${id - 1}/`);
@@ -46,15 +46,15 @@ export default function Detail({ favorites, setFavorites }) {
     setUrl(`https://pokeapi.co/api/v2/pokemon/${id + 1}/`);
   };
 
-  const checkIsFavorite = () => favorites.includes(name);
+  const checkIsFavorite = () => favorites.map((p) => p.name === name).includes(true);
 
   const handleSwitchFavorite = () => {
-    const checkFavorites = favorites.includes(name);
+    const checkFavorites = favorites.map((p) => p.name === name).includes(true);
     if (checkFavorites) {
-      const newFavorites = favorites.filter((p) => p !== name);
+      const newFavorites = favorites.filter((p) => p.name !== name);
       setFavorites(newFavorites);
     } else {
-      const newFavorites = [...favorites, name];
+      const newFavorites = [...favorites, { name, url }];
       setFavorites(newFavorites);
     }
   };
@@ -65,6 +65,10 @@ export default function Detail({ favorites, setFavorites }) {
     <div className="detail">
       {' '}
       <h2 className="detail__name">{name}</h2>
+      <figure>
+        <img src={firstImage} alt={name} className="detail__background" />
+      </figure>
+      {' '}
       <figure className="detail__image-box">
         <img
           src={firstImage || secondImage}
@@ -107,11 +111,9 @@ export default function Detail({ favorites, setFavorites }) {
       <button
         type="button"
         onClick={handleSwitchFavorite}
-        className={checkIsFavorite() ? 'green' : 'red'}
+        className={`detail__favorite detail__favorite--${checkIsFavorite() ? 'favorite' : 'no-favorite'}`}
       >
-        Add
         {' '}
-        {name}
       </button>
       <Link
         to={`../pokemons/${id - 1}/`}
@@ -127,6 +129,15 @@ export default function Detail({ favorites, setFavorites }) {
       >
         Next
       </Link>
+      <Link
+        to="../pokemons/favorites/"
+        className="detail__favorite-link"
+      >
+        Favorites
+      </Link>
+      {/* <figure>
+        <img src={secondImage} alt={name} className="detail__background" />
+      </figure> */}
     </div>
   );
 }
