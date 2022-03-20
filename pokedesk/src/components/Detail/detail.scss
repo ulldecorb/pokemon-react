@@ -91,7 +91,17 @@
             color: grey;
         }
     }
+    
+    &__favorite-link {
+        position: fixed;
 
+        background-color: #fff; 
+        right:40%;
+        top:40%;
+        height: 5vmin;
+        width: 5vmin;
+    }
+    
     &__favorite {
         height: 5vmin;
         width: 5vmin;
@@ -109,7 +119,10 @@
         &--no-favorite {
             background-image: url('../../assets/no_favorite_icon.svg');
         }
+
     }
+
+
 }
 
 @media only screen and (max-width: 768px) {

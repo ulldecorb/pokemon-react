@@ -46,15 +46,15 @@ export default function Detail({ favorites, setFavorites }) {
     setUrl(`https://pokeapi.co/api/v2/pokemon/${id + 1}/`);
   };
 
-  const checkIsFavorite = () => favorites.includes(name);
+  const checkIsFavorite = () => favorites.map((p) => p.name === name).includes(true);
 
   const handleSwitchFavorite = () => {
-    const checkFavorites = favorites.includes(name);
+    const checkFavorites = favorites.map((p) => p.name === name).includes(true);
     if (checkFavorites) {
-      const newFavorites = favorites.filter((p) => p !== name);
+      const newFavorites = favorites.filter((p) => p.name !== name);
       setFavorites(newFavorites);
     } else {
-      const newFavorites = [...favorites, name];
+      const newFavorites = [...favorites, { name, url }];
       setFavorites(newFavorites);
     }
   };
@@ -124,6 +124,12 @@ export default function Detail({ favorites, setFavorites }) {
         onClick={handleNextPokemon}
       >
         Next
+      </Link>
+      <Link
+        to="../pokemons/favorites/"
+        className="detail__favorite-link"
+      >
+        Favorites
       </Link>
     </div>
   );

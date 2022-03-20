@@ -23,15 +23,15 @@ export default function Card({ detailUrl, favorites, setFavorites }) {
     setSecondImage(res.data.sprites.front_default);
   });
 
-  const checkIsFavorite = () => favorites.includes(name);
+  const checkIsFavorite = () => favorites.map((p) => p.name === name).includes(true);
 
   const handleSwitchFavorite = () => {
-    const checkFavorites = favorites.includes(name);
+    const checkFavorites = favorites.map((p) => p.name === name).includes(true);
     if (checkFavorites) {
-      const newFavorites = favorites.filter((p) => p !== name);
+      const newFavorites = favorites.filter((p) => p.name !== name);
       setFavorites(newFavorites);
     } else {
-      const newFavorites = [...favorites, name];
+      const newFavorites = [...favorites, { name, url: detailUrl }];
       setFavorites(newFavorites);
     }
   };

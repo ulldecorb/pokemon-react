@@ -18,7 +18,7 @@ function App() {
   const [nextUrl, setNextUrl] = useState();
   const [previousUrl, setPreviousUrl] = useState();
   const [loading, setLoading] = useState(true);
-  const [favorites, setFavorites] = useState(['bulbasur', 'weedle']);
+  const [favorites, setFavorites] = useState([{ name: 'bulbasaur', url: 'https://pokeapi.co/api/v2/pokemon/1/' }, { name: 'weedle', url: 'https://pokeapi.co/api/v2/pokemon/13/' }]);
 
   useEffect(() => {
     setLoading(true);
@@ -70,7 +70,15 @@ function App() {
           )}
         />
         <Route path="/" element={<Navigate to="/pokemons" />} />
-        <Route path="/pokemons/favorites" element={<Favorites data={favorites} />} />
+        <Route
+          path="/pokemons/favorites"
+          element={(
+            <Favorites
+              favorites={favorites}
+              setFavorites={setFavorites}
+            />
+)}
+        />
         <Route path="*" element={<Error />} />
       </Routes>
     </Router>
