@@ -20,10 +20,10 @@ export default function Search() {
     setSuggestions(matches);
   };
 
-  const handleSuggestionInput = (pokemon) => {
-    setSearchInput(pokemon);
-    setSuggestions([]);
-  };
+  // const handleSuggestionInput = (pokemon) => {
+  //   setSearchInput(pokemon);
+  //   setSuggestions([]);
+  // };
 
   useEffect(() => {
     axios.get('https://pokeapi.co/api/v2/pokemon?limit=898').then((res) => {
@@ -43,12 +43,13 @@ export default function Search() {
         />
         <div className="input-box__suggestions-box">
           {suggestions && suggestions.map((p) => (
-            <button key={p} type="button" onClick={() => handleSuggestionInput(p)}>{p}</button>
+            // <button key={p} type="button" onClick={() => handleSuggestionInput(p)}>{p}</button>
+            <Link to={`./${p}`}>{p}</Link>
           ))}
         </div>
-        <Link to={`./${searchInput}`}>Search</Link>
-        {/* <button type="button" onClick={checkSearchInput}>X</button> */}
       </div>
+      <Link to={`./${searchInput}`}>GO!</Link>
+      {/* <button type="button" onClick={checkSearchInput}>X</button> */}
     </div>
   );
 }

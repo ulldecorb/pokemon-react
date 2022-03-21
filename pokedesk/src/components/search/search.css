@@ -5,6 +5,7 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  z-index: 2;
 }
 
 .search__input-box {
@@ -17,6 +18,8 @@
 }
 
 .search__input-box .input-box__suggestions-box {
+  position: absolute;
+  height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
