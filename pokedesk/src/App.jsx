@@ -77,7 +77,7 @@ function App() {
               favorites={favorites}
               setFavorites={setFavorites}
             />
-)}
+          )}
         />
         <Route path="*" element={<Error />} />
       </Routes>

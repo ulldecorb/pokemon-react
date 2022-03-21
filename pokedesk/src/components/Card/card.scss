@@ -1,14 +1,23 @@
 .card {
-    text-decoration: none;
+
     width: 20vw;
     height: 20vh;
-    box-shadow: 0 0 0 2px #000;
-    margin: 8px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: relative;
+    
+    &__link {
+
+        text-decoration: none;
+        width: 20vw;
+        height: 20vh;
+        min-width: 75px;
+        min-height: 75px;
+        box-shadow: 0 0 0 2px #000;
+        margin: 8px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
     
     &__title{
         color: red;

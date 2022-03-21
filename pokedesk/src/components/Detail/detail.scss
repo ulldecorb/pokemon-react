@@ -65,6 +65,7 @@
         background-color: #fff;
         padding: 0.5vmax 1vmax;
         cursor: pointer;
+        z-index: 3;
 
         &:hover {
             color: grey;

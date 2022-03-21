@@ -143,6 +143,6 @@ export default function Detail({ favorites, setFavorites }) {
 }
 
 Detail.propTypes = {
-  favorites: PropTypes.arrayOf(PropTypes.string).isRequired,
+  favorites: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
   setFavorites: PropTypes.func.isRequired
 };

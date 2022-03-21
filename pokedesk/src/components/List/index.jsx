@@ -26,8 +26,11 @@ export default function List({
 
 List.propTypes = {
   pokemon: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
-  goToNextPage: PropTypes.func.isRequired,
+  goToNextPage: PropTypes.oneOfType([
+    PropTypes.func.isRequired,
+    PropTypes.shape(null).isRequired
+  ]).isRequired,
   goToPreviousPage: PropTypes.func.isRequired,
-  favorites: PropTypes.arrayOf(PropTypes.string).isRequired,
+  favorites: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
   setFavorites: PropTypes.func.isRequired
 };

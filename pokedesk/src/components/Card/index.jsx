@@ -31,10 +31,10 @@ export default function Card({ detailUrl, favorites, setFavorites }) {
   };
 
   return (
-    <div>
+    <div className="card">
       <Link
         to={`./${name}`}
-        className="card"
+        className="card__link"
       >
         <h3 className="card__title">
           {id}
@@ -56,6 +56,6 @@ export default function Card({ detailUrl, favorites, setFavorites }) {
 
 Card.propTypes = {
   detailUrl: PropTypes.string.isRequired,
-  favorites: PropTypes.arrayOf(PropTypes.string).isRequired,
+  favorites: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
   setFavorites: PropTypes.func.isRequired
 };
