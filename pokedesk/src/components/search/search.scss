@@ -1,0 +1,36 @@
+.search {
+    height: 50px;
+    width: 100px;
+    background-color: red;
+    display: flex;
+
+    
+
+    &__input-box {
+        background-color: pink;
+        
+
+        .input-box{
+
+            &__input {
+                background: #000;
+                color: #fff;
+            }
+
+            &__suggestions-box {
+                // position:absolute;
+                display: flex;
+                flex-direction: column;
+            }
+        }
+    }
+
+    &__button {
+        background-color: blue;
+    }
+
+    button {
+        position: absolute;
+        
+    }
+} 

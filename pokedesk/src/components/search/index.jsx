@@ -1,24 +1,54 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
+import './search.css';
 
 export default function Search() {
   const [searchInput, setSearchInput] = useState('');
+  const [pokemonList, setPokemonList] = useState([]);
+  const [suggestions, setSuggestions] = useState([]);
 
-  const handleSearch = () => {
-    console.log(searchInput);
+  const checkSearchInput = (input) => {
+    setSearchInput(input);
+    let matches = [];
+    if (searchInput.length > 0) {
+      matches = pokemonList.filter((p) => {
+        const regex = new RegExp(`${input}`, 'gi');
+        return p.match(regex);
+      }).sort();
+    }
+    setSuggestions(matches);
   };
 
+  const handleSuggestionInput = (pokemon) => {
+    setSearchInput(pokemon);
+    setSuggestions([]);
+  };
+
+  useEffect(() => {
+    axios.get('https://pokeapi.co/api/v2/pokemon?limit=898').then((res) => {
+      const response = res.data.results.map((p) => p.name);
+      setPokemonList(response);
+    });
+  }, []);
+
   return (
-    <div>
-      <input
-        type="text"
-        onChange={(e) => setSearchInput(e.target.value)}
-        placeholder="Search..."
-      />
-      <button
-        type="button"
-        aria-label="Enter search"
-        onClick={handleSearch}
-      />
+    <div className="search">
+      <div className="search__input-box">
+        <input
+          type="text"
+          onChange={(e) => checkSearchInput(e.target.value)}
+          placeholder="Search..."
+          className="input-box__input"
+        />
+        <div className="input-box__suggestions-box">
+          {suggestions && suggestions.map((p) => (
+            <button key={p} type="button" onClick={() => handleSuggestionInput(p)}>{p}</button>
+          ))}
+        </div>
+        <Link to={`./${searchInput}`}>Search</Link>
+        {/* <button type="button" onClick={checkSearchInput}>X</button> */}
+      </div>
     </div>
   );
 }

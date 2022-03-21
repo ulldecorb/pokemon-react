@@ -1,7 +1,14 @@
 .card {
+  width: 20vw;
+  height: 20vh;
+}
+
+.card__link {
   text-decoration: none;
   width: 20vw;
   height: 20vh;
+  min-width: 75px;
+  min-height: 75px;
   -webkit-box-shadow: 0 0 0 2px #000;
           box-shadow: 0 0 0 2px #000;
   margin: 8px;

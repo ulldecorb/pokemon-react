@@ -1,0 +1,36 @@
+.search {
+  height: 50px;
+  width: 100px;
+  background-color: red;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.search__input-box {
+  background-color: pink;
+}
+
+.search__input-box .input-box__input {
+  background: #000;
+  color: #fff;
+}
+
+.search__input-box .input-box__suggestions-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.search__button {
+  background-color: blue;
+}
+
+.search button {
+  position: absolute;
+}
+/*# sourceMappingURL=search.css.map */

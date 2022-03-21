@@ -6,7 +6,7 @@
     height: 100vh;
     display:flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
 
 
@@ -23,15 +23,4 @@
         
     }
 
-    &__card {
-        width: 30vw;
-        height: 20vh;
-        box-shadow: 0 0 0 2px #000;
-        margin: 8px;
-        // margin: 5px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
 }
