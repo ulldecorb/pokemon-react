@@ -33,6 +33,6 @@ export default function Favorites({ favorites, setFavorites }) {
 }
 
 Favorites.propTypes = {
-  favorites: PropTypes.shape([]).isRequired,
+  favorites: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
   setFavorites: PropTypes.func.isRequired
 };

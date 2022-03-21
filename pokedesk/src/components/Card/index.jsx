@@ -56,6 +56,6 @@ export default function Card({ detailUrl, favorites, setFavorites }) {
 
 Card.propTypes = {
   detailUrl: PropTypes.string.isRequired,
-  favorites: PropTypes.arrayOf(PropTypes.string).isRequired,
+  favorites: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
   setFavorites: PropTypes.func.isRequired
 };
