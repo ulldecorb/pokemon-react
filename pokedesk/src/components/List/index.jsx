@@ -10,7 +10,7 @@ export default function List({
 }) {
   return (
     <main className="list">
-      <Search />
+      <Search className="list__search" />
       <div className="list__box">
         {pokemon.map((p) => (
           <Card detailUrl={p.url} key={p.name} favorites={favorites} setFavorites={setFavorites} />

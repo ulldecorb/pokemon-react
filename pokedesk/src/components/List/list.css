@@ -21,16 +21,24 @@
 
 .list__box {
   width: 90%;
-  -webkit-box-shadow: 0 0 0 2px #000;
-          box-shadow: 0 0 0 2px #000;
+  margin-top: 60px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  justify-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.list__search {
+  position: fixed;
+  top: 5px;
+  right: 5px;
+  border: 5px solid pink;
 }
 /*# sourceMappingURL=list.css.map */

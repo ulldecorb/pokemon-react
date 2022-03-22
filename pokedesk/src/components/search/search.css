@@ -1,4 +1,7 @@
 .search {
+  position: absolute;
+  top: 5px;
+  right: 180px;
   height: 50px;
   width: 100px;
   background-color: red;
@@ -10,16 +13,34 @@
 
 .search__input-box {
   background-color: pink;
+  width: 200px;
 }
 
 .search__input-box .input-box__input {
   background: #000;
   color: #fff;
+  width: 200px;
+}
+
+.search__input-box .input-box__input::-webkit-input-placeholder {
+  color: #fff;
+}
+
+.search__input-box .input-box__input:-ms-input-placeholder {
+  color: #fff;
+}
+
+.search__input-box .input-box__input::-ms-input-placeholder {
+  color: #fff;
+}
+
+.search__input-box .input-box__input::placeholder {
+  color: #fff;
 }
 
 .search__input-box .input-box__suggestions-box {
   position: absolute;
-  height: 100vh;
+  height: 50vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -27,13 +48,36 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  overflow-y: auto;
+  overflow-x: hidden;
+  border-radius: 0 0 10px 10px;
+}
+
+.search__input-box .input-box__suggestions-box .suggestions-box__suggestions {
+  width: 180px;
+  background-color: grey;
+  color: #fff;
+  cursor: pointer;
+  text-decoration: none;
+  padding: 5px;
+}
+
+.search__input-box .input-box__suggestions-box .suggestions-box__suggestions:hover {
+  background-color: #000;
+  color: yellow;
 }
 
 .search__button {
   background-color: blue;
 }
 
-.search button {
-  position: absolute;
+.search__link {
+  color: #fff;
+  background-color: red;
+  text-decoration: none;
+}
+
+.search__link:hover {
+  color: yellow;
 }
 /*# sourceMappingURL=search.css.map */

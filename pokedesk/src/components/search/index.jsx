@@ -40,15 +40,20 @@ export default function Search() {
           onChange={(e) => checkSearchInput(e.target.value)}
           placeholder="Search..."
           className="input-box__input"
+          onBlur={() => {
+            setTimeout(() => {
+              setSuggestions([]);
+            }, 100);
+          }}
         />
         <div className="input-box__suggestions-box">
-          {suggestions && suggestions.map((p) => (
+          {suggestions.length > 0 && suggestions.map((p) => (
             // <button key={p} type="button" onClick={() => handleSuggestionInput(p)}>{p}</button>
-            <Link to={`./${p}`}>{p}</Link>
+            <Link to={`./${p}`} key={p} className="suggestions-box__suggestions">{p}</Link>
           ))}
         </div>
       </div>
-      <Link to={`./${searchInput}`}>GO!</Link>
+      <Link to={`./${searchInput}`} className="search__link">GO!</Link>
       {/* <button type="button" onClick={checkSearchInput}>X</button> */}
     </div>
   );
