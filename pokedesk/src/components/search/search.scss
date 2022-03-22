@@ -1,4 +1,6 @@
 .search {
+    position: absolute;
+    top: 5px; right: 180px;
     height: 50px;
     width: 100px;
     background-color: red;
@@ -9,6 +11,7 @@
 
     &__input-box {
         background-color: pink;
+        width: 200px;
         
 
         .input-box{
@@ -16,14 +19,39 @@
             &__input {
                 background: #000;
                 color: #fff;
+                width: 200px;
+
+                &::placeholder {
+                    color:#fff;
+                }
             }
 
             &__suggestions-box {
                 position:absolute;
-                height: 100vh;
+                height: 50vh;
                 display: flex;
                 flex-direction: column;
+                overflow-y: auto;
+                overflow-x: hidden;
+                border-radius: 0 0 10px 10px;
+
+                .suggestions-box__suggestions {
+                    width: 180px;
+                    background-color: grey;
+                    color: #fff;
+                    cursor:pointer;
+                    text-decoration: none;
+                    padding: 5px;
+
+                    &:hover{
+                        background-color: #000;
+                        color: yellow;
+                    }
+
+                }
             }
+
+
         }
     }
 
@@ -31,8 +59,13 @@
         background-color: blue;
     }
 
-    button {
-        position: absolute;
-        
+    &__link {
+        color:#fff;
+        background-color: red;
+        text-decoration: none;        
+
+        &:hover {
+            color: yellow;
+        }
     }
 } 
