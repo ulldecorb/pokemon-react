@@ -1,18 +1,16 @@
 .search {
-    position: absolute;
-    top: 5px; right: 180px;
-    height: 50px;
+    position: fixed;
+    top: 0; 
+    right: 145px;
+    height: 30px;
     width: 100px;
-    background-color: red;
+    // background-color: red;
     display: flex;
     z-index: 2;
-
-    
 
     &__input-box {
         background-color: pink;
         width: 200px;
-        
 
         .input-box{
 
@@ -20,6 +18,7 @@
                 background: #000;
                 color: #fff;
                 width: 200px;
+                height: 30px;
 
                 &::placeholder {
                     color:#fff;
@@ -33,7 +32,6 @@
                 flex-direction: column;
                 overflow-y: auto;
                 overflow-x: hidden;
-                border-radius: 0 0 10px 10px;
 
                 .suggestions-box__suggestions {
                     width: 180px;
@@ -47,25 +45,32 @@
                         background-color: #000;
                         color: yellow;
                     }
-
                 }
             }
-
-
         }
-    }
-
-    &__button {
-        background-color: blue;
     }
 
     &__link {
+        width: 100px;
+        height: 36px;
+        font-size: 1rem;
+        text-align: center;
         color:#fff;
         background-color: red;
-        text-decoration: none;        
+        text-decoration: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
 
         &:hover {
-            color: yellow;
+            color: blue;
         }
     }
 } 
+
+@media ( min-width:700px ) { 
+    .search {
+        background-color: red;
+    }
+}

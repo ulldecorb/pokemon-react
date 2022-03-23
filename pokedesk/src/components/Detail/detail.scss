@@ -1,3 +1,7 @@
+@import '../../style/mixins';
+@import '../../style/colors';
+
+
 .detail {
     width:100vw;
     height: 100vh;
@@ -57,15 +61,22 @@
         }
     }
 
+    &__nav-box {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100vw;
+        height: 4vh;
+        background-color: red;
+        display:flex;
+        justify-content: space-between;
+    }
     &__back-link {
         text-decoration: none;
-        position: fixed;
-        bottom: 2vh;
-        border-radius: 2vh;
-        background-color: #fff;
-        padding: 0.5vmax 1vmax;
+        background-color: yellow;
         cursor: pointer;
-        z-index: 3;
+        width:20%;
+        @include center-text;
 
         &:hover {
             color: grey;
@@ -73,12 +84,10 @@
     }
     &__previous-nav-link {
         text-decoration: none;
-        position: fixed;
-        left: 2vh;
-        border-radius: 2vh;
         background-color: #fff;
-        padding: 0.5vmax 1vmax;
         cursor: pointer;
+        width:40%;
+        @include center-text;
 
         &:hover {
             color: grey;
@@ -86,12 +95,10 @@
     }
     &__next-nav-link {
         text-decoration: none;
-        position: fixed;
-        right: 2vh;
-        border-radius: 2vh;
         background-color: #fff;
-        padding: 0.5vmax 1vmax;
         cursor: pointer;
+        width:40%;
+        @include center-text;
 
         &:hover {
             color: grey;
@@ -100,33 +107,43 @@
     
     &__favorite-link {
         position: fixed;
-
         background-color: #fff; 
         right:40%;
         top:40%;
         height: 5vmin;
         width: 5vmin;
+        z-index: 3;
     }
     
-    &__favorite {
-        height: 5vmin;
-        width: 5vmin;
-        position: fixed;
-        right: 20%;
-        top: 20%;
-        text-decoration: none;
-        background-color: transparent;
-        border: none;
+    &__favorite-button {
         
-        &--favorite {
-            background-image: url('../../assets/favorite_icon.svg');
-        }
-        
-        &--no-favorite {
-            background-image: url('../../assets/no_favorite_icon.svg');
-        }
-
+    height: 5vmin;
+    width: 5vmin;
+    position: fixed;
+    right: 20%;
+    top: 20%;
+    border: none;
+    text-decoration: none;
     }
+
+    &__favorite-image{
+    height: 5vmin;
+    width: 5vmin;
+    // text-decoration: none;
+    background-color: transparent;
+    background-size: 80%;
+    background-repeat: no-repeat;
+    background-position: center;
+    // border: none;
+    cursor: pointer;
+    
+    &--favorite {
+        background-image: url('../../assets/favorite_icon.svg');
+    }
+    
+    &--no-favorite {
+        background-image: url('../../assets/no_favorite_icon.svg');
+    }}
 
     &__background {
         height: 200vh;
@@ -142,7 +159,7 @@
 }
 
 @media only screen and (max-width: 768px) {
-    .info__name {
+    .detail__name {
         color: pink
     }
     
