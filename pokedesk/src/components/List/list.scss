@@ -9,25 +9,12 @@
     justify-content: flex-start;
     align-items: center;
 
-
     &__box {
         width: 90%;
         margin-top: 60px;
-        // height: 100%;
-        // margin:  3vh auto;
-        // gap: 1vmin;
-        // box-shadow: 0 0 0 2px #000;
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
         align-items: center;
-        
-    }
-
-    &__search {
-        position: fixed;
-        top: 5px;
-        right: 5px;
-        border:5px solid pink;
     }
 }

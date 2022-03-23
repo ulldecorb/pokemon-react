@@ -1,8 +1,8 @@
 .card {
-    width: 20vw;
-    height: 20vh;
-    min-width:200px;
-    min-width: 200px;
+    width: 150px;
+    height: 150px;
+    min-width:150px;
+    min-width: 150px;
     border-radius:50%;
     background-color: red;
     margin: 8px;
@@ -10,13 +10,10 @@
     &__link {
 
         text-decoration: none;
-        width: 20vw;
-        height: 20vh;
-        min-width: 75px;
-        min-height: 75px;
-
-        box-shadow: 0 0 0 2px #000;
-        // margin: 8px;
+        width: 150px;
+        height: 150px;
+        min-width: 150px;
+        min-height: 150px;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -26,14 +23,20 @@
     }
     
     &__title{
-        color: white;
-        font-size: 4vmin;
+        color: #000;
+        font-size: 3vmin;
         margin: 0.5vmin;
     }
 
     &__image {
         width: 50%;
         height:50%;
+        transition: 0.6s;
+
+        &:hover {
+            width: 70%;
+        height:70%;
+        }
     }
 
     p{
@@ -49,6 +52,7 @@
         border: none;
         text-decoration: none;
         background-color: transparent;
+        background-position: 95% 95%;
         
         &--favorite {
             background-image: url('../../assets/favorite_icon.svg');

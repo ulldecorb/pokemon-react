@@ -102,33 +102,39 @@ export default function Detail({ favorites, setFavorites }) {
           </p>
         </div>
       </article>
-      <Link
-        to="../"
-        className="detail__back-link"
-      >
-        Back
-      </Link>
       <button
         type="button"
         onClick={handleSwitchFavorite}
-        className={`detail__favorite detail__favorite--${checkIsFavorite() ? 'favorite' : 'no-favorite'}`}
+        className="detail__favorite-button"
       >
-        {' '}
+        <img
+          src="../../assets/favorite_icon.svg"
+          alt={checkIsFavorite() ? 'remove favorite' : 'add favorite'}
+          className="detail__favorite-image"
+        />
       </button>
-      <Link
-        to={`../pokemons/${id - 1}/`}
-        className="detail__previous-nav-link"
-        onClick={handlePreviousPokemon}
-      >
-        Previous
-      </Link>
-      <Link
-        to={`../pokemons/${id + 1}/`}
-        className="detail__next-nav-link"
-        onClick={handleNextPokemon}
-      >
-        Next
-      </Link>
+      <footer className="detail__nav-box">
+        <Link
+          to={`../pokemons/${id - 1}/`}
+          className="detail__previous-nav-link"
+          onClick={handlePreviousPokemon}
+        >
+          Previous
+        </Link>
+        <Link
+          to="../"
+          className="detail__back-link"
+        >
+          Back
+        </Link>
+        <Link
+          to={`../pokemons/${id + 1}/`}
+          className="detail__next-nav-link"
+          onClick={handleNextPokemon}
+        >
+          Next
+        </Link>
+      </footer>
       <Link
         to="../pokemons/favorites/"
         className="detail__favorite-link"
