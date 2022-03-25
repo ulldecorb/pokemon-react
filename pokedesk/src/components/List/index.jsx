@@ -6,14 +6,19 @@ import Search from '../search';
 import './list.css';
 
 export default function List({
-  pokemon, goToNextPage, goToPreviousPage, favorites, setFavorites
+  pokemon, goToNextPage, goToPreviousPage, favoritesList, setFavoritesList
 }) {
   return (
     <main className="list">
       <Search className="list__search" />
       <div className="list__box">
         {pokemon.map((p) => (
-          <Card detailUrl={p.url} key={p.name} favorites={favorites} setFavorites={setFavorites} />
+          <Card
+            detailUrl={p.url}
+            key={p.name}
+            favoritesList={favoritesList}
+            setFavoritesList={setFavoritesList}
+          />
         ))}
       </div>
       <Pagination
@@ -31,6 +36,6 @@ List.propTypes = {
     PropTypes.shape(null).isRequired
   ]).isRequired,
   goToPreviousPage: PropTypes.func.isRequired,
-  favorites: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
-  setFavorites: PropTypes.func.isRequired
+  favoritesList: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+  setFavoritesList: PropTypes.func.isRequired
 };

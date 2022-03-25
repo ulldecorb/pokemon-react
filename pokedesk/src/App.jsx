@@ -18,7 +18,9 @@ function App() {
   const [nextUrl, setNextUrl] = useState();
   const [previousUrl, setPreviousUrl] = useState();
   const [loading, setLoading] = useState(true);
-  const [favorites, setFavorites] = useState([{ name: 'bulbasaur', url: 'https://pokeapi.co/api/v2/pokemon/1/' }, { name: 'weedle', url: 'https://pokeapi.co/api/v2/pokemon/13/' }]);
+  const [favoritesList, setFavoritesList] = useState([
+    // { name: 'bulbasaur', url: 'https://pokeapi.co/api/v2/pokemon/1/' }, { name: 'weedle', url: 'https://pokeapi.co/api/v2/pokemon/13/' }
+  ]);
 
   useEffect(() => {
     setLoading(true);
@@ -55,8 +57,8 @@ function App() {
               pokemon={pokemon}
               goToNextPage={nextUrl ? goToNextPage : null}
               goToPreviousPage={previousUrl ? goToPreviousPage : null}
-              favorites={favorites}
-              setFavorites={setFavorites}
+              favoritesList={favoritesList}
+              setFavoritesList={setFavoritesList}
             />
             )}
         />
@@ -64,8 +66,8 @@ function App() {
           path="/pokemons/:param"
           element={(
             <Detail
-              favorites={favorites}
-              setFavorites={setFavorites}
+              favoritesList={favoritesList}
+              setFavoritesList={setFavoritesList}
             />
           )}
         />
@@ -74,8 +76,8 @@ function App() {
           path="/pokemons/favorites"
           element={(
             <Favorites
-              favorites={favorites}
-              setFavorites={setFavorites}
+              favoritesList={favoritesList}
+              setFavoritesList={setFavoritesList}
             />
           )}
         />

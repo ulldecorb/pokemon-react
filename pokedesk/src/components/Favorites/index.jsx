@@ -1,28 +1,18 @@
-// import React, { useEffect, useState } from 'react';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { PropTypes } from 'prop-types';
-// import axios from 'axios';
 import Card from '../Card';
 
-export default function Favorites({ favorites, setFavorites }) {
-  // useEffect(() => {
-  //   favorites.map((pokemonName) => (
-  //     axios.get(`https://pokeapi.co/api/v2/pokemon${pokemonName}`).then((res) => {
-  //       const newFavorites = [...favorites, res.data];
-  //       setFavoriteList(newFavorites);
-  //     })
-  //   ));
-  // }, []);
-
+export default function Favorites({ favoritesList, setFavoritesList }) {
   return (
     <section className="favorites">
-      {/* <button type="button" onClick={setFavorites}>
-        {favorites.map((p) => (<h2>{p.name}</h2>
-        ))}
-      </button> */}
-      {favorites.map((p) => (
-        <Card detailUrl={p.url} key={p.name} favorites={favorites} setFavorites={setFavorites} />
+      {favoritesList.map((p) => (
+        <Card
+          detailUrl={p.url}
+          key={p.name}
+          favoritesList={favoritesList}
+          setFavoritesList={setFavoritesList}
+        />
       ))}
       <Link
         to="../"
@@ -33,6 +23,6 @@ export default function Favorites({ favorites, setFavorites }) {
 }
 
 Favorites.propTypes = {
-  favorites: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
-  setFavorites: PropTypes.func.isRequired
+  favoritesList: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+  setFavoritesList: PropTypes.func.isRequired
 };

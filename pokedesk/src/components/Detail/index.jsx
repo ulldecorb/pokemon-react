@@ -6,7 +6,7 @@ import { PropTypes } from 'prop-types';
 import Loading from '../Loading';
 import './detail.css';
 
-export default function Detail({ favorites, setFavorites }) {
+export default function Detail({ favoritesList, setFavoritesList }) {
   const { param } = useParams();
   const [url, setUrl] = useState();
   const [name, setName] = useState('');
@@ -46,16 +46,16 @@ export default function Detail({ favorites, setFavorites }) {
     setUrl(`https://pokeapi.co/api/v2/pokemon/${id + 1}/`);
   };
 
-  const checkIsFavorite = () => favorites.map((p) => p.name === name).includes(true);
+  const checkIsFavorite = () => favoritesList.map((p) => p.name === name).includes(true);
 
   const handleSwitchFavorite = () => {
-    const checkFavorites = favorites.map((p) => p.name === name).includes(true);
+    const checkFavorites = favoritesList.map((p) => p.name === name).includes(true);
     if (checkFavorites) {
-      const newFavorites = favorites.filter((p) => p.name !== name);
-      setFavorites(newFavorites);
+      const newFavorites = favoritesList.filter((p) => p.name !== name);
+      setFavoritesList(newFavorites);
     } else {
-      const newFavorites = [...favorites, { name, url }];
-      setFavorites(newFavorites);
+      const newFavorites = [...favoritesList, { name, url }];
+      setFavoritesList(newFavorites);
     }
   };
 
@@ -149,6 +149,6 @@ export default function Detail({ favorites, setFavorites }) {
 }
 
 Detail.propTypes = {
-  favorites: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
-  setFavorites: PropTypes.func.isRequired
+  favoritesList: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+  setFavoritesList: PropTypes.func.isRequired
 };
