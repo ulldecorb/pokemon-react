@@ -41,11 +41,13 @@ export default function Search() {
             }, 100);
           }}
         />
-        <div className="input-box__suggestions-box">
-          {suggestions.length > 0 && suggestions.map((p) => (
-            <Link to={`./${p}`} key={p} className="suggestions-box__suggestions">{p}</Link>
-          ))}
-        </div>
+        {suggestions.length > 0 && (
+          <div className="input-box__suggestions-box">
+            {suggestions.length > 0 && suggestions.map((p) => (
+              <Link to={`./${p}`} key={p} className="suggestions-box__suggestions">{p}</Link>
+            ))}
+          </div>
+        )}
       </div>
       <Link to={`./${searchInput}`} className="search__link">GO!</Link>
     </div>

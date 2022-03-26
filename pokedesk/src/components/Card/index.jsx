@@ -1,39 +1,54 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import axios from 'axios';
 import PropTypes from 'prop-types';
+import Loading from '../Loading';
 import './card.css';
 
-export default function Card({ detailUrl, favorites, setFavorites }) {
+export default function Card({ detailUrl, favoritesList, setFavoritesList }) {
+  const params = useLocation();
+
   const [name, setName] = useState('');
   const [id, setId] = useState('');
   const [firstImage, setFirstImage] = useState('');
   const [secondImage, setSecondImage] = useState('');
+  const [loading, setLoading] = useState(true);
 
-  axios.get(detailUrl).then((res) => {
-    setName(res.data.name);
-    setId(res.data.id);
-    setFirstImage(res.data.sprites.other.dream_world.front_default);
-    setSecondImage(res.data.sprites.front_default);
-  });
+  useEffect(() => {
+    setLoading(true);
+    let cancel;
+    axios.get(detailUrl, {
+      cancelToken: new axios.CancelToken((c) => { cancel = c; })
+    }).then((res) => {
+      setLoading(false);
+      setName(res.data.name);
+      setId(res.data.id);
+      setFirstImage(res.data.sprites.other.dream_world.front_default);
+      setSecondImage(res.data.sprites.front_default);
 
-  const checkIsFavorite = () => favorites.map((p) => p.name === name).includes(true);
+      return () => cancel();
+    });
+  }, []);
+
+  const checkIsFavorite = () => favoritesList.map((p) => p.name === name).includes(true);
 
   const handleSwitchFavorite = () => {
-    const checkFavorites = favorites.map((p) => p.name === name).includes(true);
+    const checkFavorites = checkIsFavorite();
     if (checkFavorites) {
-      const newFavorites = favorites.filter((p) => p.name !== name);
-      setFavorites(newFavorites);
+      const newFavorites = favoritesList.filter((p) => p.name !== name);
+      setFavoritesList(newFavorites);
     } else {
-      const newFavorites = [...favorites, { name, url: detailUrl }];
-      setFavorites(newFavorites);
+      const newFavorites = [...favoritesList, { name, url: detailUrl }];
+      setFavoritesList(newFavorites);
     }
   };
+
+  if (loading) return <Loading />;
 
   return (
     <div className="card">
       <Link
-        to={`./${name}`}
+        to={params.pathname === '/pokemons/favorites/' ? `../pokemons/${name}` : `./${name}`}
         className="card__link"
       >
         <h3 className="card__title">
@@ -56,6 +71,6 @@ export default function Card({ detailUrl, favorites, setFavorites }) {
 
 Card.propTypes = {
   detailUrl: PropTypes.string.isRequired,
-  favorites: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
-  setFavorites: PropTypes.func.isRequired
+  favoritesList: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+  setFavoritesList: PropTypes.func.isRequired
 };
