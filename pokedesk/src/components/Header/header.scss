@@ -1,0 +1,33 @@
+@import '../../style/mixins';
+
+.header {
+    position: fixed;
+    top:0;
+    left: 0;
+    width: 100vw;
+    height: 30px;
+    background-color: red;
+    @include flex(row-reverse, center, center);    
+    z-index: 3;
+        
+    &__favorites-link {
+        text-decoration: none;
+        width: 50%;
+        height: 100%;
+        color: white;
+        @include center-text;
+        background-color: blue;
+        cursor: pointer;
+    }
+}
+
+@media only screen and ( max-width: 768px ) { 
+    .header {
+        height: 60px;
+        @include flex(column, center, center);
+        
+        &__favorites-link {
+            width: 100vw;
+        }
+    }
+}

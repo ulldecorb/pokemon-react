@@ -2,7 +2,6 @@ import React from 'react';
 import { PropTypes } from 'prop-types';
 import Pagination from '../Pagination';
 import Card from '../Card';
-import Search from '../search';
 import './list.css';
 
 export default function List({
@@ -10,7 +9,7 @@ export default function List({
 }) {
   return (
     <main className="list">
-      <Search className="list__search" />
+      {/* <Search className="list__search" /> */}
       <div className="list__box">
         {pokemon.map((p) => (
           <Card

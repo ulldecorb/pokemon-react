@@ -9,6 +9,7 @@ import axios from 'axios';
 import List from './components/List';
 import Detail from './components/Detail';
 import Loading from './components/Loading';
+import Header from './components/Header';
 import Favorites from './components/Favorites';
 import Error from './components/Error';
 
@@ -49,6 +50,7 @@ function App() {
 
   return (
     <Router>
+      <Header />
       <Routes>
         <Route
           path="/pokemons"

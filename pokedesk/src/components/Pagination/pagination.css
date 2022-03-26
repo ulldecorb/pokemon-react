@@ -16,15 +16,11 @@
 }
 
 .pagination__previous-button {
-  width: 10vw;
-  position: absolute;
-  right: 50vw;
-  border-radius: 5vh;
+  width: 48vw;
   font-size: 2vmin;
   margin: 0 5px;
   background-color: grey;
   color: #fff;
-  outline: 2px solid #000;
   cursor: pointer;
 }
 
@@ -33,15 +29,11 @@
 }
 
 .pagination__next-button {
-  width: 10vw;
-  position: absolute;
-  left: 50vw;
-  border-radius: 5vh;
+  width: 48vw;
   font-size: 2vmin;
   margin: 0 5px;
   background-color: grey;
   color: #fff;
-  outline: 2px solid #000;
   cursor: pointer;
 }
 

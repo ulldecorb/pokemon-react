@@ -1,25 +1,23 @@
 .search {
-  position: fixed;
-  top: 0;
-  right: 145px;
   height: 30px;
-  width: 100px;
+  width: 50%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  z-index: 2;
 }
 
 .search__input-box {
   background-color: pink;
-  width: 200px;
+  width: 80%;
 }
 
 .search__input-box .input-box__input {
   background: #000;
   color: #fff;
-  width: 200px;
+  width: 40vw;
   height: 30px;
+  border: none;
+  padding: 0 0 0 20px;
 }
 
 .search__input-box .input-box__input::-webkit-input-placeholder {
@@ -38,9 +36,14 @@
   color: #fff;
 }
 
+.search__input-box .input-box__input:focus {
+  outline: none;
+}
+
 .search__input-box .input-box__suggestions-box {
   position: absolute;
-  height: 50vh;
+  width: 100%;
+  background-color: rgba(128, 128, 128, 0.363);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -53,12 +56,12 @@
 }
 
 .search__input-box .input-box__suggestions-box .suggestions-box__suggestions {
-  width: 180px;
-  background-color: grey;
-  color: #fff;
+  width: 100%;
+  color: #000;
   cursor: pointer;
   text-decoration: none;
   padding: 5px;
+  outline: 1px solid rgba(255, 255, 255, 0.315);
 }
 
 .search__input-box .input-box__suggestions-box .suggestions-box__suggestions:hover {
@@ -67,8 +70,8 @@
 }
 
 .search__link {
-  width: 100px;
-  height: 36px;
+  width: 10vw;
+  height: 30px;
   font-size: 1rem;
   text-align: center;
   color: #fff;
@@ -86,12 +89,18 @@
 }
 
 .search__link:hover {
-  color: blue;
+  color: yellow;
 }
 
-@media (min-width: 700px) {
+@media only screen and (max-width: 768px) {
   .search {
-    background-color: red;
+    width: 100%;
+  }
+  .search .input-box__input {
+    width: 100%;
+  }
+  .search__link {
+    width: 10%;
   }
 }
 /*# sourceMappingURL=search.css.map */
