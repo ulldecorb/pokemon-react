@@ -4,21 +4,21 @@ import Pagination from './index';
 
 describe('when pagination render', () => {
   test('next button is render', () => {
-    render(<Pagination goToNextPage="url direction" />);
+    render(<Pagination goToNextPage={jest.fn()} />);
     const button = screen.getByText(/next/i);
     expect(button).toBeInTheDocument();
   });
   test('previous button is render', () => {
-    render(<Pagination goToPreviousPage="url direction" />);
+    render(<Pagination goToPreviousPage={jest.fn()} />);
     const button = screen.getByText(/Previous/i);
     expect(button).toBeInTheDocument();
   });
   test('next button is not render', () => {
-    const { container } = render(<Pagination goToNextPage={null} goToPreviousPage="previous url" />);
+    const { container } = render(<Pagination goToNextPage={null} goToPreviousPage={jest.fn()} />);
     expect(container.childElementCount).toEqual(1);
   });
   test('previous button is not render', () => {
-    const { container } = render(<Pagination goToPreviousPage={null} goToNextPage="next url" />);
+    const { container } = render(<Pagination goToPreviousPage={null} goToNextPage={jest.fn()} />);
     expect(container.childElementCount).toEqual(1);
   });
   test('handle next pagination', () => {
