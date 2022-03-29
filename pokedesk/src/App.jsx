@@ -23,17 +23,35 @@ function App() {
     // { name: 'bulbasaur', url: 'https://pokeapi.co/api/v2/pokemon/1/' }, { name: 'weedle', url: 'https://pokeapi.co/api/v2/pokemon/13/' }
   ]);
 
+  // const getData = () => {
+  //   setLoading(true);
+  //   let cancel;
+  //   axios.get(currentUrl, {
+  //     cancelToken: new axios.CancelToken((c) => { cancel = c; })
+  //   })
+  //   .then((res) => {
+  //       setLoading(false);
+  //       setNextUrl(res.data.next);
+  //       setPreviousUrl(res.data.previous);
+  //       setPokemon(res.data.results);
+  //    }).catch (err) {
+  //            alert('problem' + err);
+  //     console.log(err.response.data.error)
+  //    };
+  // }
+
   useEffect(() => {
     setLoading(true);
     let cancel;
     axios.get(currentUrl, {
       cancelToken: new axios.CancelToken((c) => { cancel = c; })
-    }).then((res) => {
-      setLoading(false);
-      setNextUrl(res.data.next);
-      setPreviousUrl(res.data.previous);
-      setPokemon(res.data.results);
-    });
+    })
+      .then((res) => {
+        setLoading(false);
+        setNextUrl(res.data.next);
+        setPreviousUrl(res.data.previous);
+        setPokemon(res.data.results);
+      }).catch((err) => console.log(err));
 
     return () => cancel();
   }, [currentUrl]);

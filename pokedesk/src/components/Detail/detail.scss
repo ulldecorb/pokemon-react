@@ -1,7 +1,6 @@
 @import '../../style/mixins';
 @import '../../style/colors';
 
-
 .detail {
     width:100vw;
     height: 100vh;
@@ -10,15 +9,16 @@
     left: 0;
     display:flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     background-color: red;
     overflow: hidden;
     
-    &__name {
+    &__title {
         font-size: 5rem;
         font-variant: small-caps;
         margin: 2vh;
+        margin-top: 60px;
         color: yellow;
         z-index: 2;
     }
@@ -41,23 +41,28 @@
     }
 
     &__info {        
-        height: 30vh;
-        margin-top: 6vh;
+        height: 5vh;
         display: flex;
         justify-content: center;
         z-index: 2;
 
+        .info {
 
-        .info__name{
-            text-align: left;
-            margin: 0.5vh 0.5vw;
-            width: 15vw;
-            font-size: 1.5rem;
-            border-radius: 2vh;
-            background-color: white;
-            padding-left: 1vw;
-            outline: 0.2vmin solid #000;
-            color: rgb(87, 86, 86);
+            &__box {
+                height: 10vh;
+            }
+
+            &__data{
+                text-align: left;
+                margin: 0.5vh 0.5vw;
+                width: 15vw;
+                font-size: 1.5rem;
+                border-radius: 2vh;
+                background-color: white;
+                padding-left: 1vw;
+                outline: 0.2vmin solid #000;
+                color: rgb(87, 86, 86);
+            }
         }
     }
 
@@ -105,45 +110,36 @@
         }
     }
     
-    &__favorite-link {
-        position: fixed;
-        background-color: #fff; 
-        right:40%;
-        top:40%;
-        height: 5vmin;
-        width: 5vmin;
-        z-index: 3;
-    }
-    
     &__favorite-button {
         
-    height: 5vmin;
-    width: 5vmin;
+    height: 15vmin;
+    width: 15vmin;
+    @include flex (row, center, center);
     position: fixed;
-    right: 20%;
-    top: 20%;
+    top:60px; right: 0;
     border: none;
     text-decoration: none;
+    background-color: blue;
+
+        .favorite-button__image{
+            height: 5vmin;
+            width: 5vmin;
+            background-color: transparent;
+            // background-size: 80%;
+            background-repeat: no-repeat;
+            background-position: center;
+            cursor: pointer;
+            
+            &--favorite {
+                background-image: url('../../assets/favorite_icon.svg');
+            }
+            
+            &--no-favorite {
+                background-image: url('../../assets/no_favorite_icon.svg');
+            }
     }
 
-    &__favorite-image{
-    height: 5vmin;
-    width: 5vmin;
-    // text-decoration: none;
-    background-color: transparent;
-    background-size: 80%;
-    background-repeat: no-repeat;
-    background-position: center;
-    // border: none;
-    cursor: pointer;
-    
-    &--favorite {
-        background-image: url('../../assets/favorite_icon.svg');
     }
-    
-    &--no-favorite {
-        background-image: url('../../assets/no_favorite_icon.svg');
-    }}
 
     &__background {
         height: 200vh;

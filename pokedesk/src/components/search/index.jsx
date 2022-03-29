@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import axios from 'axios';
 import './search.css';
 
 export default function Search() {
+  const params = useLocation();
+
   const [searchInput, setSearchInput] = useState('');
   const [pokemonList, setPokemonList] = useState([]);
   const [suggestions, setSuggestions] = useState([]);
@@ -12,6 +14,7 @@ export default function Search() {
     axios.get('https://pokeapi.co/api/v2/pokemon?limit=898').then((res) => {
       const response = res.data.results.map((p) => p.name);
       setPokemonList(response);
+      console.log(params);
     });
   }, []);
 
@@ -44,12 +47,12 @@ export default function Search() {
         {suggestions.length > 0 && (
           <div className="input-box__suggestions-box">
             {suggestions.length > 0 && suggestions.map((p) => (
-              <Link to={`./${p}`} key={p} className="suggestions-box__suggestions">{p}</Link>
+              <Link to={params.pathname === '/pokemons' ? `./${p}` : `../pokemons/${p}`} key={p} className="suggestions-box__suggestions">{p}</Link>
             ))}
           </div>
         )}
       </div>
-      <Link to={`./${searchInput}`} className="search__link">GO!</Link>
+      <Link to={params.pathname === '/pokemons' ? `./pokemons/${searchInput}` : `./${searchInput}`} className="search__link">GO!</Link>
     </div>
   );
 }
