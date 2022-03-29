@@ -9,8 +9,7 @@ export default function List({
 }) {
   return (
     <main className="list">
-      {/* <Search className="list__search" /> */}
-      <div className="list__box">
+      <div className="list__box" data-testid="listBox">
         {pokemon.map((p) => (
           <Card
             detailUrl={p.url}
