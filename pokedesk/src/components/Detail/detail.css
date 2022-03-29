@@ -11,9 +11,9 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -21,10 +21,11 @@
   overflow: hidden;
 }
 
-.detail__name {
+.detail__title {
   font-size: 5rem;
   font-variant: small-caps;
   margin: 2vh;
+  margin-top: 60px;
   color: yellow;
   z-index: 2;
 }
@@ -52,8 +53,7 @@
 }
 
 .detail__info {
-  height: 30vh;
-  margin-top: 6vh;
+  height: 5vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -63,7 +63,11 @@
   z-index: 2;
 }
 
-.detail__info .info__name {
+.detail__info .info__box {
+  height: 10vh;
+}
+
+.detail__info .info__data {
   text-align: left;
   margin: 0.5vh 0.5vw;
   width: 15vw;
@@ -150,41 +154,44 @@
   color: grey;
 }
 
-.detail__favorite-link {
-  position: fixed;
-  background-color: #fff;
-  right: 40%;
-  top: 40%;
-  height: 5vmin;
-  width: 5vmin;
-  z-index: 3;
-}
-
 .detail__favorite-button {
-  height: 5vmin;
-  width: 5vmin;
+  height: 15vmin;
+  width: 15vmin;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   position: fixed;
-  right: 20%;
-  top: 20%;
+  top: 60px;
+  right: 0;
   border: none;
   text-decoration: none;
+  background-color: blue;
 }
 
-.detail__favorite-image {
+.detail__favorite-button .favorite-button__image {
   height: 5vmin;
   width: 5vmin;
   background-color: transparent;
-  background-size: 80%;
   background-repeat: no-repeat;
   background-position: center;
   cursor: pointer;
 }
 
-.detail__favorite-image--favorite {
+.detail__favorite-button .favorite-button__image--favorite {
   background-image: url("../../assets/favorite_icon.svg");
 }
 
-.detail__favorite-image--no-favorite {
+.detail__favorite-button .favorite-button__image--no-favorite {
   background-image: url("../../assets/no_favorite_icon.svg");
 }
 

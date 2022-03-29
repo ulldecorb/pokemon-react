@@ -63,8 +63,7 @@ export default function Detail({ favoritesList, setFavoritesList }) {
 
   return (
     <div className="detail">
-      {' '}
-      <h2 className="detail__name">{name}</h2>
+      <h2 className="detail__title">{name}</h2>
       <figure>
         <img src={firstImage} alt={name} className="detail__background" />
       </figure>
@@ -78,24 +77,24 @@ export default function Detail({ favoritesList, setFavoritesList }) {
       </figure>
       <article className="detail__info">
         <div className="info__box">
-          <p className="info__name">
+          <p className="info__data">
             id:
             {' '}
             {id}
           </p>
-          <p className="info__name">
+          <p className="info__data">
             height:
             {' '}
             {height}
           </p>
         </div>
         <div className="info__box">
-          <p className="info__name">
+          <p className="info__data">
             types:
             {' '}
             {types}
           </p>
-          <p className="info__name">
+          <p className="info__data">
             weight:
             {' '}
             {weight}
@@ -107,10 +106,10 @@ export default function Detail({ favoritesList, setFavoritesList }) {
         onClick={handleSwitchFavorite}
         className="detail__favorite-button"
       >
-        <img
-          src="../../assets/favorite_icon.svg"
+        <figure
+          src="favorite_icon.svg"
           alt={checkIsFavorite() ? 'remove favorite' : 'add favorite'}
-          className="detail__favorite-image"
+          className={`favorite-button__image ${checkIsFavorite() ? 'favorite-button__image--favorite' : 'favorite-button__image--no-favorite'}`}
         />
       </button>
       <footer className="detail__nav-box">
@@ -135,15 +134,6 @@ export default function Detail({ favoritesList, setFavoritesList }) {
           Next
         </Link>
       </footer>
-      <Link
-        to="../pokemons/favorites/"
-        className="detail__favorite-link"
-      >
-        Favorites
-      </Link>
-      {/* <figure>
-        <img src={secondImage} alt={name} className="detail__background" />
-      </figure> */}
     </div>
   );
 }
