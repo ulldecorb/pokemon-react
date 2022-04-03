@@ -17,7 +17,9 @@ export default function Favorites({ favoritesList, setFavoritesList }) {
       <Link
         to="../"
         className="favorites__back-link"
-      />
+      >
+        Back
+      </Link>
     </section>
   );
 }
