@@ -5,14 +5,13 @@ body {
 }
 
 .loading{
-    display: absolute;
     top: 0;
     left: 0;
     height: 100vh;
     width: 100vw;
     background-color: red;
     display: flex;
-    flex-direction: column;;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     overflow: hidden;
@@ -30,7 +29,7 @@ body {
     outline: 2vmin solid #000;
     background-image: linear-gradient(180deg, red, red 45%, #000 45%, #000 55%,#fff 55% );
     display: flex;
-    flex-direction: column;;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     animation: spin-pokeball 1s linear 0s infinite normal none;
