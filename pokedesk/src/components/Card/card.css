@@ -2,9 +2,8 @@
   width: 150px;
   height: 150px;
   min-width: 150px;
-  min-width: 150px;
   border-radius: 50%;
-  background-color: red;
+  background-color: #ff0000;
   margin: 8px;
 }
 

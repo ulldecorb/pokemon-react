@@ -1,10 +1,11 @@
+@import '../../style/colors';
+
 .card {
     width: 150px;
     height: 150px;
     min-width:150px;
-    min-width: 150px;
     border-radius:50%;
-    background-color: red;
+    background-color: $background-color;
     margin: 8px;
     
     &__link {

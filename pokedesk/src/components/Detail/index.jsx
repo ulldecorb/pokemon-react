@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 import { PropTypes } from 'prop-types';
-// import Error from '../Error';
 import Loading from '../Loading';
 import './detail.css';
 

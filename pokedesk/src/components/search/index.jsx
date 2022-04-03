@@ -14,7 +14,6 @@ export default function Search() {
     axios.get('https://pokeapi.co/api/v2/pokemon?limit=898').then((res) => {
       const response = res.data.results.map((p) => p.name);
       setPokemonList(response);
-      console.log(params);
     });
   }, []);
 
