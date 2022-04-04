@@ -111,19 +111,18 @@
     }
     
     &__favorite-button {
-        
-    height: 15vmin;
-    width: 15vmin;
+    height: 146px;
+    width: 146px;
     @include flex (row, center, center);
     position: fixed;
     top:60px; right: 0;
     border: none;
     text-decoration: none;
-    background-color: blue;
+    background-color: transparent;
 
         .favorite-button__image{
-            height: 5vmin;
-            width: 5vmin;
+            height: 5rem;
+            width: 5rem;
             background-color: transparent;
             // background-size: 80%;
             background-repeat: no-repeat;
