@@ -5,6 +5,7 @@ body {
 }
 
 .loading{
+    position: absolute;
     top: 0;
     left: 0;
     height: 100vh;
@@ -15,6 +16,7 @@ body {
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    z-index: 4;
 }
 
 .loading__text{

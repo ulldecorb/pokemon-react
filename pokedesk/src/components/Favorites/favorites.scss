@@ -1,0 +1,8 @@
+@import '../../style/colors';
+@import '../../style/mixins';
+
+.favorites {
+    margin-top: 30px;
+    background-color: pink;
+    @include flex(column, center,center); 
+}

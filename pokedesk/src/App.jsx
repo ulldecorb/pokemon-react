@@ -20,7 +20,7 @@ function App() {
   const [previousUrl, setPreviousUrl] = useState();
   const [loading, setLoading] = useState(true);
   const [favoritesList, setFavoritesList] = useState([
-    // { name: 'bulbasaur', url: 'https://pokeapi.co/api/v2/pokemon/1/' }, { name: 'weedle', url: 'https://pokeapi.co/api/v2/pokemon/13/' }
+    { name: 'bulbasaur', url: 'https://pokeapi.co/api/v2/pokemon/1/' }, { name: 'weedle', url: 'https://pokeapi.co/api/v2/pokemon/13/' }
   ]);
 
   useEffect(() => {

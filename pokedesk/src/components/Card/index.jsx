@@ -14,6 +14,8 @@ export default function Card({ detailUrl, favoritesList, setFavoritesList }) {
   const [secondImage, setSecondImage] = useState('');
   const [loading, setLoading] = useState(true);
 
+  console.log(params);
+
   useEffect(() => {
     setLoading(true);
     let cancel;
@@ -48,7 +50,7 @@ export default function Card({ detailUrl, favoritesList, setFavoritesList }) {
   return (
     <div className="card">
       <Link
-        to={params.pathname === '/pokemons/favorites/' ? `../pokemons/${name}` : `./${name}`}
+        to={params.pathname === '/pokemons/favorites' ? `../pokemons/${name}` : `./${name}`}
         className="card__link"
       >
         <h3 className="card__title">
