@@ -40,13 +40,20 @@ export default function Search() {
           onBlur={() => {
             setTimeout(() => {
               setSuggestions([]);
+              setSearchInput('');
             }, 100);
           }}
         />
         {suggestions.length > 0 && (
           <div className="input-box__suggestions-box">
-            {suggestions.length > 0 && suggestions.map((p) => (
-              <Link to={params.pathname === '/pokemons' ? `./${p}` : `../pokemons/${p}`} key={p} className="suggestions-box__suggestions">{p}</Link>
+            {suggestions.map((p) => (
+              <Link
+                to={`./pokemons/${p}`}
+                key={p}
+                className="suggestions-box__suggestions"
+              >
+                {p}
+              </Link>
             ))}
           </div>
         )}

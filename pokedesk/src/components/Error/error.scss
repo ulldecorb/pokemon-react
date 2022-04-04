@@ -1,0 +1,17 @@
+@import '../../style/mixins';
+@import '../../style/colors';
+
+.error {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: $background-color;
+    @include flex(column, center, center);
+
+    &__title {
+        color: yellow;
+        font-size: 3rem;
+    }
+}
