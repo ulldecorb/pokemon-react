@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import React, { useEffect, useState, useRef } from 'react';
+// import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import './search.css';
 
 export default function Search() {
-  const params = useLocation();
+  const inputRef = useRef(null);
 
   const [searchInput, setSearchInput] = useState('');
   const [pokemonList, setPokemonList] = useState([]);
@@ -33,6 +34,7 @@ export default function Search() {
     <div className="search">
       <div className="search__input-box">
         <input
+          ref={inputRef}
           type="text"
           onChange={(e) => checkSearchInput(e.target.value)}
           placeholder="Search..."
@@ -40,7 +42,7 @@ export default function Search() {
           onBlur={() => {
             setTimeout(() => {
               setSuggestions([]);
-              setSearchInput('');
+              inputRef.current.value = null;
             }, 100);
           }}
         />
@@ -58,7 +60,7 @@ export default function Search() {
           </div>
         )}
       </div>
-      <Link to={params.pathname === '/pokemons' ? `./pokemons/${searchInput}` : `./${searchInput}`} className="search__link">GO!</Link>
+      <Link to={`./pokemons/${searchInput}`} className="search__link">GO!</Link>
     </div>
   );
 }
