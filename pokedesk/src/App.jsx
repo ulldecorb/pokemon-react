@@ -34,7 +34,7 @@ function App() {
         setNextUrl(res.data.next);
         setPreviousUrl(res.data.previous);
         setPokemon(res.data.results);
-      }).catch((err) => console.log(err));
+      }).catch((err) => err);
 
     return () => cancel();
   }, [currentUrl]);

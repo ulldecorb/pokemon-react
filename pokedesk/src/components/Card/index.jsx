@@ -14,8 +14,6 @@ export default function Card({ detailUrl, favoritesList, setFavoritesList }) {
   const [secondImage, setSecondImage] = useState('');
   const [loading, setLoading] = useState(true);
 
-  console.log(params);
-
   useEffect(() => {
     setLoading(true);
     let cancel;
